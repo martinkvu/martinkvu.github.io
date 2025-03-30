@@ -1,50 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 50,
-                    behavior: "smooth"
-                });
-            }
-        });
+// Smooth scroll to sections on clicking navigation links
+document.querySelectorAll('.nav-container a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
+  });
+});
 
-    // Active navigation highlight
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
+// Function to highlight the active navigation link based on scroll position
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-container a');
 
-    window.addEventListener("scroll", () => {
-        let current = "";
+  let currentSection = '';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 60;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute("id");
-            }
-        });
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
 
-        navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").substring(1) === current) {
-                link.classList.add("active");
-            }
-        });
-    });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').substring(1) === currentSection) {
+      link.classList.add('active');
+    }
+  });
+});
 
-    // Toggle dark mode (example feature)
-    const toggleButton = document.createElement("button");
-    toggleButton.textContent = "Toggle Dark Mode";
-    toggleButton.style.position = "fixed";
-    toggleButton.style.bottom = "10px";
-    toggleButton.style.right = "10px";
-    document.body.appendChild(toggleButton);
-
-    toggleButton.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-    });
+// Optional: Adding active class to navigation links when scrolling
+document.querySelectorAll('.nav-container a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelectorAll('.nav-container a').forEach(link => link.classList.remove('active'));
+    link.classList.add('active');
+  });
 });
