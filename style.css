@@ -1,86 +1,80 @@
-/* Body Styling */
-body {
-  font-family: 'Montserrat', sans-serif;
+/* Reset some basic elements */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #f5f5f5;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
   color: #333;
 }
 
-/* Header Styling */
+/* Header styles */
 header {
-  padding: 0;
-  width: 100vw;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  background-image: url('IMG_2433.jpg'); /* Set your image path here */
+  background-image: url('IMG_2433.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align to top */
-  color: navy;
+  align-items: center;
   text-align: center;
-  position: relative;
-}
-
-header div {
-  margin-top: 12vh; /* Pushes the caption slightly down from the top */
+  color: navy;
 }
 
 header h1 {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
 }
 
 header p {
   font-size: 1.5rem;
-  margin-top: 0;
 }
 
+/* Navigation container at top right */
+.nav-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+  font-weight: 600;
+}
 
-/* Section Styling */
+.nav-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3); /* subtle background for visibility */
+}
+
+.nav-container a:hover {
+  background-color: #ffffffcc;
+  color: #2c3e50;
+}
+
+/* Section styling */
 section {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
 }
 
-.section {
-  margin-bottom: 3rem;
-}
-
-h1, h2 {
+h2 {
   color: #2c3e50;
+  margin-bottom: 1rem;
 }
 
 a {
   color: #2980b9;
-  text-decoration: none;
 }
 
-/* Navigation Styling */
-.nav-container {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  display: flex;
-  gap: 1rem;
-  font-family: 'Cousine', monospace;
-  font-size: 1rem;
-}
-
-.cursor-pointer p {
-  margin-right: 1rem;
-  cursor: pointer;
-}
-
-.cursor-pointer p:hover {
-  color: #2980b9;
-}
-
-/* Contact Links */
 .contact-links a {
   margin-right: 1rem;
 }
