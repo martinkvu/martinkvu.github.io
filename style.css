@@ -1,5 +1,3 @@
-/* style.css */
-
 /* General Body Styling */
 body {
   font-family: 'Montserrat', sans-serif;
@@ -12,11 +10,12 @@ body {
 /* Header Styling */
 header {
   padding: 0;
-  max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
+  width: 100vw; /* Full viewport width */
   background-image: url('IMG_2433.jpg'); /* Update image path if needed */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   justify-content: center;
