@@ -19,23 +19,20 @@
     a { color: #2980b9; text-decoration: none; }
     .contact-links a { margin-right: 1rem; }
     .section { margin-bottom: 3rem; }
-    nav {
-      background-color: #fff;
-      padding: 1rem 2rem;
+    .nav-container {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      border-bottom: 1px solid #ccc;
+      gap: 1rem;
+      font-family: 'Cousine', monospace;
+      font-size: 1rem;
     }
-    nav a {
-      font-weight: 600;
-      color: #2c3e50;
+    .cursor-pointer p {
+      margin-right: 1rem;
       cursor: pointer;
     }
-    nav a:hover {
+    .cursor-pointer p:hover {
       color: #2980b9;
     }
   </style>
@@ -45,7 +42,7 @@
     <div class="flex flex-col justify-center">
       <main class="flex flex-col items-center justify-center w-full">
         <div class="w-full h-screen">
-          <nav class="absolute top-6 right-4 lg:right-8 items-center font-cousine md:text-lg hidden sm:flex">
+          <nav class="nav-container">
             <div class="cursor-pointer"><p class="mr-14"><a href="#about">About</a></p></div>
             <div class="cursor-pointer"><p class="mr-14"><a href="#skills">Skills</a></p></div>
             <div class="cursor-pointer"><p class="mr-14"><a href="#experience">Experience</a></p></div>
