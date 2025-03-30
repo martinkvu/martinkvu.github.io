@@ -40,14 +40,22 @@
     }
   </style>
 </head>
-<body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<body id="app">
+  <div id="_next">
+    <div class="flex flex-col justify-center">
+      <main class="flex flex-col items-center justify-center w-full">
+        <div class="w-full h-screen">
+          <nav class="absolute top-6 right-4 lg:right-8 items-center font-cousine md:text-lg hidden sm:flex">
+            <div class="cursor-pointer"><p class="mr-14"><a href="#about">About</a></p></div>
+            <div class="cursor-pointer"><p class="mr-14"><a href="#skills">Skills</a></p></div>
+            <div class="cursor-pointer"><p class="mr-14"><a href="#experience">Experience</a></p></div>
+            <div class="cursor-pointer"><p class="mr-14"><a href="#projects">Projects</a></p></div>
+            <div class="cursor-pointer"><p class="mr-14"><a href="#contact">Contact</a></p></div>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </div>
 
   <header>
     <h1>Martin Vu</h1>
@@ -84,4 +92,3 @@
   </section>
 </body>
 </html>
-
