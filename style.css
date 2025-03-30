@@ -1,4 +1,4 @@
-/* General Body Styling */
+/* Body Styling */
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -9,14 +9,10 @@ body {
 
 /* Header Styling */
 header {
-  padding: 0;
   margin: 0;
-  width: 100vw; /* Full viewport width */
-  background-image: url('IMG_2433.jpg'); /* Update image path if needed */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100vw;
   height: 100vh;
+  background: url('IMG_2433.jpg') center center / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,4 +76,3 @@ a {
 .contact-links a {
   margin-right: 1rem;
 }
-
