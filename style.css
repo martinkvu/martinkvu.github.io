@@ -66,7 +66,13 @@ section {
   margin: auto;
   background-color: #ffffff;
 }
-
+section > div {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px; /* optional: for soft corners */
+  box-shadow: none;   /* remove any shadows if present */
+}
 h2 {
   color: #2c3e50;
   margin-bottom: 1rem;
