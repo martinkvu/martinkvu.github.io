@@ -1,45 +1,80 @@
-<!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Martin Vu</title>
-   <meta name="description" content="Martin Vu's Portfolio Site">
-   <link rel="icon" href="/favicon.ico">
-   <meta property="og:image" content="https://ik.imagekit.io/martinvu/Website_Preview_9UZVEzHGC6i.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643933086408">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-   <link rel="stylesheet" href="style.css">
-   <style>
-     body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; }
- 
-     /* Header styling */
-     header {
-       padding: 0;
-       width: 100vw;
-       background-repeat: no-repeat;
-       margin: 0 auto;
-       background-image: url('IMG_2433.jpg'); /* Set your image path here */
-       background-size: cover;
-       background-position: center;
-       height: 100vh; /* Make the header full viewport height */
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       color: navy; /* Change text color to navy */
-       text-align: center;
-     }
- 
-     header h1, header p {
-       margin: 0;
-     }
- 
-     header h1 {
-       font-size: 3rem; /* Adjust font size as needed */
-     }
- 
-     header p {
-       font-size: 1.5rem; /* Adjust font size as needed */
-     }
+/* Reset some basic elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Header styles */
+header {
+  background-image: url('IMG_2433.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: navy;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+/* Navigation container at top right */
+.nav-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+  font-weight: 600;
+}
+
+.nav-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3); /* subtle background for visibility */
+}
+
+.nav-container a:hover {
+  background-color: #ffffffcc;
+  color: #2c3e50;
+}
+
+/* Section styling */
+section {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #2980b9;
+}
+
+.contact-links a {
+  margin-right: 1rem;
+}
