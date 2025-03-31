@@ -141,7 +141,7 @@ a {
   padding: 0 20px 10px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  box-shadow: none; /* Remove box-shadow by default */
 }
 
 #skills .icon-box .icon {
@@ -176,11 +176,6 @@ a {
   transition: ease-in-out 0.3s;
 }
 
-#skills .icon-box:hover {
-  border-color: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1);
-}
-
 #skills .iconbox-blue {
   color: white;
   background-color: navy;
@@ -191,7 +186,19 @@ a {
   margin: 15px;
   font-size: 4.5em;
   opacity: 0.93;
-  box-shadow: 4px 5px 4px 3px rgba(12, 4, 168, 0.137);
   text-align: center;
   display: table;
+  box-shadow: none; /* Remove box-shadow by default */
+}
+
+#skills .icon-box:hover {
+  border-color: #fff;
+  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1); /* Add box-shadow on hover */
+}
+
+#skills .iconbox-blue:hover {
+  transform: scale(1.05) !important;
+  overflow: hidden;
+  border: 2.2px solid rgb(78, 189, 230);
+  box-shadow: 0px 0 10px 0 rgba(0, 0, 0, 0.2); /* Add box-shadow on hover */
 }
