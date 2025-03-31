@@ -148,10 +148,24 @@ section > div {
 
 .iconbox-blue {
   color: white; /* optional: makes text stand out on dark background */
-  border: 2px solid navy; /* adds the border around the box */
-  border-radius: 10px; /* optional: for a nicer look */
-  transition: all ease-in-out 0.3s;   
-  padding: 0 20px 10px 20px;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);  
-  background-color: navy; /* makes the background transparent */
+  border: 1.7px solid rgba(137, 140, 230, 0.637) !important;
+  border-radius: 5px !important;
+  transition: all 0.4s ease 0s !important;
+  padding: 10px !important;
+  margin: 15px !important;
+  font-size: 4.5em !important;
+  opacity: 0.93 !important;
+  box-shadow: 4px 5px 4px 3px rgba(12, 4, 168, 0.137) !important;
+  background-color: navy !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  display: table !important;
+  overflow: hidden !important;
+}
+
+/* Hover effect */
+.tech-icons:hover {
+  transform: scale(1.05) !important;
+  overflow: hidden !important;
+  border: 2.2px solid rgb(78, 189, 230) !important;
 }
