@@ -54,13 +54,54 @@ header p {
   padding: 0.5rem 0.75rem;
   transition: color 0.3s, background-color 0.3s;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3); /* subtle background for visibility */
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .nav-container a:hover {
   background-color: #ffffffcc;
   color: #2c3e50;
 }
+
+/* === Responsive Nav Button Styles === */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-end;
+    background: #f5f5f5;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    display: none;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .nav-container.active {
+    display: flex;
+  }
+
+  .nav-container a {
+    color: #2c3e50;
+    background-color: transparent;
+  }
+}
+/* === End Nav Button Styles === */
 
 /* Section styling */
 section {
@@ -73,8 +114,8 @@ section > div {
   background-color: #ffffff;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border-radius: 8px; /* optional: for soft corners */
-  box-shadow: none;   /* remove any shadows if present */
+  border-radius: 8px;
+  box-shadow: none;
 }
 
 h2 {
@@ -138,9 +179,9 @@ a {
 /* Skills section */
 #skills {
   display: flex;
-  flex-wrap: wrap;  /* Allows items to wrap to new rows */
-  justify-content: center;  /* Centers items within rows */
-  gap: 20px;  /* Spacing between the boxes */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 #skills .icon-box {
@@ -149,19 +190,19 @@ a {
   transition: all ease-in-out 0.3s;
   background: #fff;
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
-  width: calc(33.33% - 40px); /* Default width for larger screens */
-  box-sizing: border-box;  /* To include padding and margins in the width calculation */
+  width: calc(33.33% - 40px);
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
   #skills .icon-box {
-    width: calc(50% - 40px); /* For medium screens, 2 items per row */
+    width: calc(50% - 40px);
   }
 }
 
 @media (max-width: 768px) {
   #skills .icon-box {
-    width: calc(100% - 40px); /* For smaller screens, 1 item per row */
+    width: calc(100% - 40px);
   }
 }
 
@@ -215,17 +256,17 @@ a {
   opacity: 0.93;
   text-align: center;
   display: table;
-  box-shadow: none; /* Remove box-shadow by default */
+  box-shadow: none;
 }
 
 #skills .icon-box:hover {
   border-color: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1); /* Add box-shadow on hover */
+  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1);
 }
 
 #skills .iconbox-blue:hover {
   transform: scale(1.05) !important;
   overflow: hidden;
   border: 2.2px solid rgb(78, 189, 230);
-  box-shadow: 0px 0 10px 0 rgba(0, 0, 0, 0.2); /* Add box-shadow on hover */
+  box-shadow: 0px 0 10px 0 rgba(0, 0, 0, 0.2);
 }
