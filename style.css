@@ -151,5 +151,5 @@ section > div {
   border: 2px solid navy; /* adds the border around the box */
   border-radius: 10px; /* optional: for a nicer look */
   padding: 20px;
-  background-color: transparent; /* makes the background transparent */
+  background-color: navy; /* makes the background transparent */
 }
