@@ -126,6 +126,10 @@ section > div {
 }
 
 /* Contact section */
+#contact h2 {
+  text-align: center;
+}
+
 #contact {
   color: navy;
 }
