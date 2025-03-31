@@ -1,4 +1,4 @@
-Here is style.css code /* Reset some basic elements */
+/* Reset some basic elements */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -92,9 +92,11 @@ html, body {
 section > div {
   background-color: #ffffff;
 }
+
 .contact-links a {
   margin-right: 1rem;
 }
+
 /* Social Media Links Styling */
 .social-links {
   margin-top: 1rem;
@@ -114,7 +116,16 @@ section > div {
   transform: scale(1.2);
 }
 
-/* Bottom Social Media Links*/
+/* Fixed Bottom Social Media Links */
+.social-links.fixed {
+  position: fixed;
+  bottom: 20px;  /* Adjust this distance from the bottom of the page */
+  left: 50%;
+  transform: translateX(-50%);  /* Center the buttons horizontally */
+  z-index: 1000;  /* Ensure the buttons stay on top of other content */
+}
+
+/* Contact section */
 #contact {
   color: navy;
 }
