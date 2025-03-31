@@ -145,3 +145,10 @@ section > div {
 #contact .bx {
   color: navy;
 }
+
+.iconbox-blue {
+  background-color: navy;
+  color: white; /* optional: makes text stand out on dark background */
+  border-radius: 10px; /* optional: for a nicer look */
+  padding: 20px;
+}
