@@ -113,3 +113,20 @@ section > div {
   color: #2980b9; /* change color on hover */
   transform: scale(1.2);
 }
+
+/* Bottom Social Media Links*/
+#contact {
+  color: navy;
+}
+
+#contact a {
+  color: navy;
+}
+
+#contact a:hover {
+  color: #000080;
+}
+
+#contact .bx {
+  color: navy;
+}
