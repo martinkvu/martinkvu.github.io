@@ -2,7 +2,8 @@
 document.querySelectorAll('.nav-container a').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
+    const targetSection = document.querySelector(this.getAttribute('href'));
+    targetSection.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
@@ -13,31 +14,32 @@ document.querySelectorAll('.nav-container a').forEach(anchor => {
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-container a');
-
-  let currentSection = '';
+  let currentSectionId = '';
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 100;
     if (window.scrollY >= sectionTop) {
-      currentSection = section.getAttribute('id');
+      currentSectionId = section.getAttribute('id');
     }
   });
 
+  // Remove active class from all links and add to the current one
   navLinks.forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href').substring(1) === currentSection) {
+    if (link.getAttribute('href').substring(1) === currentSectionId) {
       link.classList.add('active');
     }
   });
 });
 
-// Optional: Adding active class to navigation links when scrolling
+// Optional: Adding active class to navigation links when clicked
 document.querySelectorAll('.nav-container a').forEach(link => {
   link.addEventListener('click', () => {
     document.querySelectorAll('.nav-container a').forEach(link => link.classList.remove('active'));
     link.classList.add('active');
   });
 });
+
 // Function to toggle the navigation menu for mobile view
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
@@ -45,24 +47,19 @@ function toggleMenu() {
 }
 
 // Scroll effect for sticky navbar (optional)
-window.onscroll = function () {
-  stickyNavbar();
-};
+const navbar = document.querySelector(".navbar");
+const sticky = navbar.offsetTop;
 
-var navbar = document.querySelector(".navbar");
-var sticky = navbar.offsetTop;
-
-function stickyNavbar() {
+window.addEventListener('scroll', function() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
   } else {
     navbar.classList.remove("sticky");
   }
-}
+});
 
 // Function to close the menu when a link is clicked (optional)
-const navLinks = document.querySelectorAll(".nav-container a");
-navLinks.forEach(link => {
+document.querySelectorAll(".nav-container a").forEach(link => {
   link.addEventListener("click", () => {
     const nav = document.getElementById("nav-links");
     nav.classList.remove("active");
