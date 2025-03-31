@@ -3,10 +3,16 @@ document.querySelectorAll('.nav-container a').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const targetSection = document.querySelector(this.getAttribute('href'));
-    targetSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    // Close mobile menu after clicking
+    const nav = document.getElementById("nav-links");
+    nav.classList.remove("active");
   });
 });
 
@@ -23,7 +29,6 @@ window.addEventListener('scroll', () => {
     }
   });
 
-  // Remove active class from all links and add to the current one
   navLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href').substring(1) === currentSectionId) {
@@ -32,36 +37,28 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Optional: Adding active class to navigation links when clicked
-document.querySelectorAll('.nav-container a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.nav-container a').forEach(link => link.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-// Function to toggle the navigation menu for mobile view
+// Toggle menu for mobile view
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
   nav.classList.toggle("active");
 }
 
-// Scroll effect for sticky navbar (optional)
+// Add click listener to menu toggle button
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+  }
+});
+
+// Sticky navbar behavior
 const navbar = document.querySelector(".navbar");
 const sticky = navbar.offsetTop;
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
   } else {
     navbar.classList.remove("sticky");
   }
-});
-
-// Function to close the menu when a link is clicked (optional)
-document.querySelectorAll(".nav-container a").forEach(link => {
-  link.addEventListener("click", () => {
-    const nav = document.getElementById("nav-links");
-    nav.classList.remove("active");
-  });
 });
