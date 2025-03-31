@@ -62,7 +62,73 @@ header p {
   color: #2c3e50;
 }
 
-/* === Responsive Nav Button Styles === */
+/* Navbar styles */
+.sticky {
+  background-color: #111030a9 !important;
+  transition: all 0.3s ease-out 0s !important;
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.navbar {
+  position: fixed !important;
+  transition: all 0.3s ease-out 0s !important;
+  padding: 0.3rem 2rem !important;
+  font-size: 1.2rem !important;
+}
+
+.navbar-toggler {
+  position: relative !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.navbar-toggler span {
+  display: block !important;
+  background-color: #4800ff !important;
+  height: 4px !important;
+  width: 27px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  transform: rotate(0deg) !important;
+  left: 0 !important;
+  opacity: 1 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: 0 !important;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+  transition: transform 0.35s ease-in-out !important;
+  transition: transform 0.35s ease-in-out !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(135deg) !important;
+  opacity: 0.9 !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px !important;
+  visibility: hidden !important;
+  background-color: transparent !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(-135deg) !important;
+  opacity: 0.9 !important;
+}
+
+/* Responsive Nav Button Styles */
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -101,7 +167,6 @@ header p {
     background-color: transparent;
   }
 }
-/* === End Nav Button Styles === */
 
 /* Section styling */
 section {
@@ -269,102 +334,4 @@ a {
   overflow: hidden;
   border: 2.2px solid rgb(78, 189, 230);
   box-shadow: 0px 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-/* === Responsive Navigation === */
-
-.nav-wrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  z-index: 999;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: transparent; /* transparent by default */
-  pointer-events: none; /* only child elements are clickable */
-}
-
-.menu-toggle {
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
-  pointer-events: auto;
-}
-
-.nav-container {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  pointer-events: auto;
-}
-
-.nav-container a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-container a:hover {
-  background-color: #ffffffcc;
-  color: #2c3e50;
-}
-
-/* Mobile styles */
-@media (max-width: 1024px) {
-  .nav-container {
-    position: absolute;
-    top: 100%;
-    right: 2rem;
-    flex-direction: column;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: none;
-  }
-
-  .nav-container a {
-    color: #2c3e50;
-    background-color: transparent;
-    font-size: 1.1rem;
-    width: 100%;
-    text-align: right;
-  }
-
-  .nav-container.active {
-    display: flex;
-  }
-
-  .nav-wrapper {
-    background-color: rgba(255, 255, 255, 0.8);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    justify-content: space-between;
-    pointer-events: auto;
-  }
-
-  .menu-toggle {
-    color: #2c3e50;
-  }
-}
-
-/* Sticky hamburger on scroll for mobile */
-@media (max-width: 768px) {
-  .menu-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 2rem;
-    background: rgba(255,255,255,0.9);
-    padding: 0.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
 }
