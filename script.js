@@ -38,3 +38,33 @@ document.querySelectorAll('.nav-container a').forEach(link => {
     link.classList.add('active');
   });
 });
+// Function to toggle the navigation menu for mobile view
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  nav.classList.toggle("active");
+}
+
+// Scroll effect for sticky navbar (optional)
+window.onscroll = function () {
+  stickyNavbar();
+};
+
+var navbar = document.querySelector(".navbar");
+var sticky = navbar.offsetTop;
+
+function stickyNavbar() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+// Function to close the menu when a link is clicked (optional)
+const navLinks = document.querySelectorAll(".nav-container a");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("nav-links");
+    nav.classList.remove("active");
+  });
+});
