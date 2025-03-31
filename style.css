@@ -95,3 +95,21 @@ section > div {
 .contact-links a {
   margin-right: 1rem;
 }
+/* Social Media Links Styling */
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  font-size: 2rem;
+  color: white; /* or use navy or a specific brand color */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #2980b9; /* change color on hover */
+  transform: scale(1.2);
+}
