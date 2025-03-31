@@ -136,12 +136,33 @@ a {
 }
 
 /* Skills section */
+#skills {
+  display: flex;
+  flex-wrap: wrap;  /* Allows items to wrap to new rows */
+  justify-content: center;  /* Centers items within rows */
+  gap: 20px;  /* Spacing between the boxes */
+}
+
 #skills .icon-box {
   text-align: center;
   padding: 0 20px 10px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  width: calc(33.33% - 40px); /* Default width for larger screens */
+  box-sizing: border-box;  /* To include padding and margins in the width calculation */
+}
+
+@media (max-width: 1024px) {
+  #skills .icon-box {
+    width: calc(50% - 40px); /* For medium screens, 2 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  #skills .icon-box {
+    width: calc(100% - 40px); /* For smaller screens, 1 item per row */
+  }
 }
 
 #skills .icon-box .icon {
@@ -175,11 +196,13 @@ a {
   color: #fff;
   transition: ease-in-out 0.3s;
 }
+
 #skills .icon-box p {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
 }
+
 #skills .iconbox-blue {
   color: white;
   background-color: navy;
@@ -194,6 +217,7 @@ a {
   display: table;
   box-shadow: none; /* Remove box-shadow by default */
 }
+
 #skills .icon-box:hover {
   border-color: #fff;
   box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1); /* Add box-shadow on hover */
