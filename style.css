@@ -207,7 +207,7 @@ section > div {
 }
 
 /* Enhanced .iconbox-blue styling */
-.iconbox-blue {
+#skills .iconbox-blue {
   color: white !important;
   background-color: navy !important;
   border: 1.7px solid rgba(137, 140, 230, 0.637) !important;
@@ -225,7 +225,7 @@ section > div {
 }
 
 /* Hover effect for icons */
-.tech-icons:hover {
+#skills .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
   border: 2.2px solid rgb(78, 189, 230) !important;
