@@ -149,10 +149,10 @@ section {
 }
 
 section > div {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-radius: 0;
   box-shadow: none;
 }
 
@@ -297,4 +297,18 @@ a {
   .skills-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.skills-grid {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+#contact .social-links {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
