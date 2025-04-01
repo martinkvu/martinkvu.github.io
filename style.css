@@ -44,21 +44,6 @@ header p {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* .nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}*/
-
 .nav-content {
   width: 100%;
   padding: 1rem 2rem;
