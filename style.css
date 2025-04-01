@@ -296,3 +296,11 @@ footer {
   color: white;
   text-align: center;
 }
+#contact {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+footer {
+  margin-top: 0;
+}
