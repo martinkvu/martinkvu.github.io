@@ -1,51 +1,20 @@
-*,
-*::before,
-*::after {
+/* === RESET STYLES === */
+*, *::before, *::after {
   box-sizing: border-box;
-}
-body, html {
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #333;
   overflow-x: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden; /* ✨ This is key */
-}
-
-/* === RESET STYLES === */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
-  overflow-x: hidden; /* Prevents horizontal scroll from hidden overflow */
-}
-
-/* === NEW: MAIN CONTENT BACKGROUND === */
-main {
-  background-color: #ffffff;
-  min-height: 100vh;
-}
-main {
-  padding-top: 0;
-}
-/* === HEADER SECTION === */
+/* === HEADER SECTION (Hero) === */
 header {
   width: 100vw;
   height: 100vh;
@@ -57,9 +26,9 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: white;
   position: relative;
   z-index: 1;
-  color: white;
 }
 
 header h1 {
@@ -68,6 +37,11 @@ header h1 {
 
 header p {
   font-size: 1.5rem;
+}
+
+#typed {
+  font-size: 3rem;
+  color: white;
 }
 
 /* === NAVBAR STYLING === */
@@ -148,10 +122,16 @@ header p {
   }
 }
 
+/* === MAIN SECTION === */
+main {
+  background-color: #ffffff;
+  padding-top: 0;
+}
+
 /* === SECTION STYLING === */
 section {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -220,12 +200,6 @@ a {
   color: navy;
 }
 
-/* === HERO TYPING EFFECT === */
-#typed {
-  font-size: 3rem;
-  color: white;
-}
-
 /* === SKILLS SECTION === */
 #skills {
   padding: 2rem;
@@ -241,7 +215,7 @@ a {
   align-items: stretch;
 }
 
-/* Square skill box */
+/* Square Skill Box */
 .icon-box {
   background-color: navy;
   color: white;
@@ -276,43 +250,33 @@ a {
   color: white;
 }
 
-/* === SKILLS GRID COLUMNS BASED ON SCREEN SIZE === */
-
-/* 5 columns on large screens (≥992px, Zoom ≤125%) */
+/* === SKILLS GRID BREAKPOINTS === */
 @media (min-width: 992px) {
   .skills-grid {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
-/* 4 columns on medium screens (768px–991px, Zoom 150–175%) */
 @media (min-width: 768px) and (max-width: 991px) {
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* 2 columns on phones/tablets and high-zoom (261px–767px, Zoom 200%–500%) */
 @media (min-width: 261px) and (max-width: 767px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 1 column on very small screens (≤260px) */
 @media (max-width: 260px) {
   .skills-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.skills-grid {
-  background: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-}
-
+/* === Remove extra styling from skills container & contact links === */
+.skills-grid,
 #contact .social-links {
   background: none !important;
   border-radius: 0 !important;
