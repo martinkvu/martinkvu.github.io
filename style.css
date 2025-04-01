@@ -1,3 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* ✨ This is key */
+}
 /* === RESET STYLES === */
 * {
   box-sizing: border-box;
@@ -20,18 +37,19 @@ html, body {
 }
 /* === HEADER SECTION === */
 header {
+  width: 100vw;
+  height: 100vh;
   background-image: url('IMG_2433.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw; /* Ensures full viewport width */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
+  position: relative;
 }
 
 header h1 {
