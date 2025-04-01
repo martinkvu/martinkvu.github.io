@@ -1,11 +1,10 @@
-
-// Toggle Menu on Mobile
+// Toggle nav menu on hamburger click
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
   nav.classList.toggle("active");
 }
 
-// Smooth Scroll
+// Smooth scroll behavior
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -17,7 +16,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Active Link on Scroll
+// Highlight active link while scrolling
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('.nav-links a');
