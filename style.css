@@ -66,7 +66,7 @@ header p {
 /* Nav links */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .nav-links a {
