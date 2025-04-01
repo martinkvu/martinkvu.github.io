@@ -1,39 +1,82 @@
-// Toggle nav menu on hamburger click
-function toggleMenu() {
-  const nav = document.getElementById("nav-links");
-  nav.classList.toggle("active");
-}
+import React, { useState, useEffect, useRef } from 'react';
 
-// Smooth scroll behavior
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', function (e) {
+const Navbar = () => {
+  const [menuActive, setMenuActive] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const sectionRefs = useRef({});
+
+  // Toggle menu
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
+
+  // Scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const sections = Object.keys(sectionRefs.current);
+
+      for (let id of sections) {
+        const section = sectionRefs.current[id];
+        if (section) {
+          const top = section.offsetTop - 120;
+          if (scrollY >= top) {
+            setActiveSection(id);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll
+  const handleLinkClick = (e, id) => {
     e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
+    const section = sectionRefs.current[id];
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    document.getElementById("nav-links").classList.remove("active");
-  });
-});
+    setMenuActive(false);
+  };
 
-// Highlight active link while scrolling
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('.nav-links a');
-  let current = "";
+  // Sections for demo
+  const sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+  return (
+    <>
+      <nav className="navbar">
+        <div className="hamburger" onClick={toggleMenu}>
+          ☰
+        </div>
+        <ul className={`nav-links ${menuActive ? 'active' : ''}`}>
+          {sections.map((id) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                className={activeSection === id ? 'active' : ''}
+                onClick={(e) => handleLinkClick(e, id)}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-  links.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-});
-section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      {sections.map((id) => (
+        <section
+          id={id}
+          key={id}
+          ref={(el) => (sectionRefs.current[id] = el)}
+          style={{ height: '100vh', paddingTop: '120px' }}
+        >
+          <h2>{id.charAt(0).toUpperCase() + id.slice(1)}</h2>
+        </section>
+      ))}
+    </>
+  );
+};
+
+export default Navbar;
