@@ -267,3 +267,8 @@ a {
   border: 2.2px solid rgb(78, 189, 230);
   box-shadow: 0px 0 10px 0 rgba(0, 0, 0, 0.2);
 }
+
+#typed {
+  font-size: 3rem;
+  color: white;
+}
