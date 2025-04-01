@@ -36,3 +36,4 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+section.scrollIntoView({ behavior: 'smooth', block: 'start' });
