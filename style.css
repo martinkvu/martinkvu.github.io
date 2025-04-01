@@ -55,13 +55,7 @@ header p {
   align-items: center;
 }
 
-/* Hamburger Button */
-.menu-toggle {
-  font-size: 2rem;
-  cursor: pointer;
-  color: #333;
-  display: none;
-}
+
 
 /* Nav links */
 .nav-links {
@@ -81,9 +75,18 @@ header p {
 .nav-links a.active {
   color: #2980b9;
 }
-
+/* Hamburger Button */
+.menu-toggle {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  display: none;
+}
 /* === Responsive Styles === */
 @media (max-width: 768px) {
+    .nav-content {
+    justify-content: flex-end;
+  }
   .nav-links {
     display: none;
     flex-direction: column;
