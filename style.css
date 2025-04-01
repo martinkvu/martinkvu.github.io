@@ -272,3 +272,38 @@ a {
   font-size: 3rem;
   color: white;
 }
+/* === Responsive Skills Grid === */
+.skills-grid {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/* 5 columns ≥ 992px */
+@media (min-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 4 columns from 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 2 columns from 261px to 767px */
+@media (min-width: 261px) and (max-width: 767px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 column ≤ 260px */
+@media (max-width: 260px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
