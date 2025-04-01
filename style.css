@@ -37,22 +37,23 @@ main {
   background-color: #ffffff;
   min-height: 100vh;
 }
-
+main {
+  padding-top: 0;
+}
 /* === HEADER SECTION === */
 header {
   width: 100vw;
   height: 100vh;
   background-image: url('IMG_2433.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
-  overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 header h1 {
