@@ -72,6 +72,7 @@
       color: #2980b9;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body id="app">
   <div id="_next">
@@ -105,7 +106,10 @@
 
   <header>
     <div>        
-      <h1 style="color: white;">Hi! I'm Martin Vu</h1> 
+    <div id="typed-strings">
+  <p>Hi! I’m Martin Vu!</p>
+</div>
+<span id="typed" style="color: white; font-size: 3rem;"></span>
       <div class="social-links">
         <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email"><i class="bx bx-envelope"></i></a>       
         <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin"><i
@@ -420,5 +424,17 @@
   }
 </script>
   <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Typed("#typed", {
+      stringsElement: "#typed-strings",
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 1500,
+      startDelay: 300,
+      showCursor: false
+    });
+  });
+</script>
 </body>
 </html>
