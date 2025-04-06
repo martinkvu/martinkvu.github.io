@@ -442,6 +442,16 @@
       </div>      
     </section>
   </main>
+<div id="preloader">
+  <div class="music-loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+  
   <script>
   function toggleMenu() {
     const nav = document.getElementById("nav-links");
@@ -465,6 +475,14 @@
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
+</script>
+  <script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.display = "none";
+    }
+  });
 </script>
   <footer style="background-color: #0B318F; color: white; padding: 20px; text-align: center;">
   <p>© 2025 Martin Vu. All rights reserved.</p>
