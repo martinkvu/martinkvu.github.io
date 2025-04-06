@@ -476,13 +476,28 @@
     window.scrollTo(0, 0);
   };
 </script>
-  <script>
-  window.addEventListener("load", function () {
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
+
     if (preloader) {
-      preloader.style.display = "none";
+      preloader.style.display = "flex"; // Show preloader immediately
+
+      // Optional delay to simulate loading (e.g. 1.5s)
+      setTimeout(() => {
+        preloader.style.opacity = "0";
+        preloader.style.pointerEvents = "none";
+
+        // Fully hide after transition (optional)
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500);
+      }, 1500); // Adjust delay time (ms) as needed
     }
   });
+</script>
+
 </script>
   <footer style="background-color: #0B318F; color: white; padding: 20px; text-align: center;">
   <p>© 2025 Martin Vu. All rights reserved.</p>
