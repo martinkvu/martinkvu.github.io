@@ -326,31 +326,32 @@ footer {
 #preloader .music-loader {
   display: flex;
   gap: 5px;
-  align-items: flex-end;
+  align-items: center;
   height: 80px;
 }
 
 #preloader .music-loader span {
   display: block;
   width: 6px;
-  height: 20px;
+  height: 40px;
   background: red;
-  animation: wave 1s infinite ease-in-out;
+  transform-origin: center center;
+  animation: wave-scale 1s infinite ease-in-out;
 }
 
-/* Mirrored delays */
+/* Mirrored delays for wave effect */
 #preloader .music-loader span:nth-child(1) { animation-delay: 0s; }
 #preloader .music-loader span:nth-child(2) { animation-delay: 0.15s; }
 #preloader .music-loader span:nth-child(3) { animation-delay: 0.3s; }
 #preloader .music-loader span:nth-child(4) { animation-delay: 0.15s; }
 #preloader .music-loader span:nth-child(5) { animation-delay: 0s; }
 
-@keyframes wave {
+@keyframes wave-scale {
   0%, 100% {
-    height: 20px;
+    transform: scaleY(1);
   }
   50% {
-    height: 60px;
+    transform: scaleY(2); /* grows up and down from center */
   }
 }
 
