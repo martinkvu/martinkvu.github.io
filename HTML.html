@@ -9,15 +9,20 @@
 <body>
     <header>
         <h1>Welcome to My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+   <!-- Menu Button for Mobile -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+    <!-- Full-Screen Mobile Menu -->
+    <nav id="mobileMenu" class="mobile-menu">
+      <button class="close-btn" onclick="toggleMenu()">×</button>
+      <ul>
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+    
     <section id="about">
         <h2>About Me</h2>
         <p>Hi, I'm Martin Vu, a Data Scientist passionate about technology, business, and healthcare.</p>
