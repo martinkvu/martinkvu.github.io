@@ -108,21 +108,14 @@
       <!-- This can be a logo or empty if needed -->
     </div>
     <div class="nav-right">
-          <div class="menu-toggle" onclick="toggleMenu()">
-      <i class='bx bx-menu'></i>  
-          </div>
-    </div>
-    
       <div class="nav-links" id="nav-links">
-        <div class="mobile-menu" id="mobile-menu">
-    <div class="close-btn" onclick="toggleMenu()">&times;</div>        
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#skills" onclick="toggleMenu()">Skills</a>
-    <a href="#experience" onclick="toggleMenu()">Experience</a>
-    <a href="#projects" onclick="toggleMenu()">Projects</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>     
-        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
       <div class="menu-toggle" onclick="toggleMenu()">
         <i class='bx bx-menu'></i>
       </div>
@@ -483,12 +476,7 @@
     window.scrollTo(0, 0);
   };
 </script>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('active');
-  }
-</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
