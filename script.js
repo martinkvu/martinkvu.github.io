@@ -51,25 +51,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Hide preloader if exists
+  // === Handle Preloader ===
   const preloader = document.getElementById('preloader');
-  if (preloader) {
-    preloader.style.display = 'none';
-  }
-  document.body.classList.add('loaded');
+  const typedTarget = document.getElementById('typed');
 
-  // Initialize Typed.js
-  const typedTarget = document.getElementById("typed");
-  if (typedTarget) {
-    new Typed("#typed", {
-      stringsElement: "#typed-strings",
-      typeSpeed: 50,
-      backSpeed: 0,
-      backDelay: 0,
-      loop: false,
-       onComplete: () => {
-    document.getElementById("typed").classList.add("done-typing");
-  }
-    });
+  if (preloader) {
+    setTimeout(() => {
+      // Hide the preloader
+      preloader.style.display = 'none';
+      document.body.classList.add('loaded');
+
+      // Start typing animation AFTER preloader disappears
+      if (typedTarget) {
+        typedTarget.textContent = ""; // Clear existing text
+        new Typed("#typed", {
+          stringsElement: "#typed-strings",
+          typeSpeed: 50,
+          backSpeed: 0,
+          backDelay: 0,
+          loop: false,
+          showCursor: true,
+          onComplete: () => {
+            typedTarget.classList.add("done-typing");
+            const cursor = document.querySelector(".typed-cursor");
+            if (cursor) cursor.style.display = "none";
+          }
+        });
+      }
+    }, 300); // Delay matches any fade-out animation (adjust as needed)
+  } else {
+    // If no preloader exists, initialize Typed.js immediately
+    if (typedTarget) {
+      typedTarget.textContent = "";
+      new Typed("#typed", {
+        stringsElement: "#typed-strings",
+        typeSpeed: 50,
+        backSpeed: 0,
+        backDelay: 0,
+        loop: false,
+        showCursor: true,
+        onComplete: () => {
+          typedTarget.classList.add("done-typing");
+          const cursor = document.querySelector(".typed-cursor");
+          if (cursor) cursor.style.display = "none";
+        }
+      });
+    }
   }
 });
