@@ -64,17 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
       // Start typing animation AFTER preloader disappears, only once
       if (typedTarget) {
         typedTarget.textContent = ""; // Clear existing text
-        new Typed("#typed", {
-          stringsElement: "#typed-strings", // Ensure this is your array of strings
-          typeSpeed: 1,
-          backSpeed: 0,
-          backDelay: 0,
-          loop: false, // Prevent looping
-          showCursor: false, // Cursor is now hidden to prevent the white line
-          onComplete: () => {
-            typedTarget.classList.add("done-typing");
-          }
-        });
+
+        // Use a timeout to ensure the animation starts after the preloader disappears
+        setTimeout(() => {
+          new Typed("#typed", {
+            stringsElement: "#typed-strings", // Ensure this is your array of strings
+            typeSpeed: 25,
+            backSpeed: 0,
+            backDelay: 0,
+            loop: false, // Prevent looping
+            showCursor: false, // Cursor is now hidden to prevent the white line
+            onComplete: () => {
+              typedTarget.classList.add("done-typing");
+            }
+          });
+        }, 100); // Add small delay to ensure the preloader is fully hidden before typing starts
       }
     }, 300); // Delay matches any fade-out animation (adjust as needed)
   } else {
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typedTarget.textContent = "";
       new Typed("#typed", {
         stringsElement: "#typed-strings", // Ensure this is your array of strings
-        typeSpeed: 1,
+        typeSpeed: 25,
         backSpeed: 0,
         backDelay: 0,
         loop: false, // Prevent looping
