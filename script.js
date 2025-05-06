@@ -60,3 +60,7 @@ function typeText(text, element, speed) {
   }
   typeChar();
 }
+
+document.getElementById("menu-toggle").addEventListener("click", function () {
+  document.getElementById("nav-links").classList.toggle("active");
+});
