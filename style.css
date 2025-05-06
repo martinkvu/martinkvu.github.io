@@ -49,7 +49,7 @@ header p {
   position: fixed;
   top: 0;
   width: 100%;
-  background: transparent;
+  background: #0B318F; /* Updated: Solid background for visibility */
   z-index: 999;
   box-shadow: none;
   transition: background-color 0.3s ease;
@@ -64,7 +64,7 @@ header p {
 }
 
 .nav-left .logo {
-  color: #0B318F;
+  color: #ffffff;
   font-weight: bold;
   font-size: 1.25rem;
   text-decoration: none;
@@ -84,26 +84,26 @@ header p {
 .nav-links a {
   font-size: 1rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #2980b9;
+  color: #00A3E6;
 }
 
 /* === Hamburger Icon === */
 .menu-toggle {
   font-size: 2rem;
-  color: #0B318F;
+  color: #ffffff; /* Updated: Ensure visible over dark navbar */
   cursor: pointer;
   display: none;
   z-index: 1100;
 }
 
-/* === RESPONSIVE NAVBAR WITH SLIDE ANIMATION === */
+/* === RESPONSIVE NAVBAR === */
 @media (max-width: 768px) {
   .nav-links {
     display: flex;
@@ -112,7 +112,7 @@ header p {
     position: absolute;
     top: 70px;
     right: 20px;
-    padding: 0; /* will animate in active */
+    padding: 0;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     width: 180px;
@@ -147,14 +147,14 @@ header p {
     display: block;
     color: white;
   }
-}
 
-.close-btn {
-  align-self: flex-end;
-  font-size: 1.75rem;
-  cursor: pointer;
-  color: white;
-  margin-bottom: 1rem;
+  .close-btn {
+    align-self: flex-end;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 1rem;
+  }
 }
 
 /* === MAIN SECTION === */
@@ -319,11 +319,7 @@ a {
   box-shadow: none !important;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
+/* === FOOTER === */
 footer {
   margin: 0;
   padding: 20px;
