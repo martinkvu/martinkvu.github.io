@@ -46,6 +46,7 @@ header p {
   font-size: 1.5rem;
 }
 
+/* === TYPING EFFECT === */
 #typed {
   font-size: 3rem;
   color: white;
@@ -57,6 +58,11 @@ header p {
   z-index: 2;
   border-right: 2px solid white;
   animation: typing-glitch-fix 0.01s step-start forwards;
+  visibility: hidden; /* Hide until preloader ends */
+}
+
+body.loaded #typed {
+  visibility: visible;
 }
 
 #typed-strings {
