@@ -1,10 +1,12 @@
-// Toggle nav menu on hamburger click
+// === Toggle nav menu on hamburger click ===
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
   nav.classList.toggle("active");
 }
 
-// Smooth scroll behavior
+document.getElementById("menu-toggle").addEventListener("click", toggleMenu);
+
+// === Smooth scroll behavior and close menu after click ===
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -16,7 +18,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Highlight active link while scrolling
+// === Highlight active link while scrolling ===
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('.nav-links a');
@@ -37,16 +39,19 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Typing effect after preloader
+// === Preloader & Typing Animation ===
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
     preloader.style.display = 'none';
   }
 
-  document.body.classList.add('loaded'); // For any CSS fade-ins
+  document.body.classList.add('loaded');
 
-  typeText("Hi, I'm Martin Vu", document.getElementById("typed"), 100);
+  const typedTarget = document.getElementById("typed");
+  if (typedTarget) {
+    typeText("Hi, I'm Martin Vu", typedTarget, 100);
+  }
 });
 
 function typeText(text, element, speed) {
@@ -60,7 +65,3 @@ function typeText(text, element, speed) {
   }
   typeChar();
 }
-
-document.getElementById("menu-toggle").addEventListener("click", function () {
-  document.getElementById("nav-links").classList.toggle("active");
-});
