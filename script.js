@@ -61,37 +61,36 @@ document.addEventListener("DOMContentLoaded", function () {
       preloader.style.display = 'none';
       document.body.classList.add('loaded');
 
-      // Start typing animation AFTER preloader disappears, only once
-      if (typedTarget) {
-        typedTarget.textContent = ""; // Clear existing text
+      // Clear any text before starting the Typed.js animation
+      typedTarget.textContent = ""; // Clear existing text
 
-        // Wait a small time to ensure that the preloader has disappeared
-        setTimeout(() => {
-          new Typed("#typed", {
-            stringsElement: "#typed-strings", // Ensure this is your array of strings
-            typeSpeed: 25,
-            backSpeed: 0,
-            backDelay: 0,
-            loop: false, // Prevent looping
-            showCursor: false, // Cursor is now hidden to prevent the white line
-            onComplete: () => {
-              typedTarget.classList.add("done-typing");
-            }
-          });
-        }, 200); // Adjusted delay to make sure preloader disappears properly
-      }
-    }, 300); // Ensure delay matches fade-out animation of preloader
+      // Wait a small time to ensure that the preloader has disappeared
+      setTimeout(() => {
+        // Initialize Typed.js animation
+        new Typed("#typed", {
+          stringsElement: "#typed-strings", // Ensure this is your array of strings
+          typeSpeed: 50, // Adjust typing speed
+          backSpeed: 0,
+          backDelay: 0,
+          loop: false, // Prevent looping
+          showCursor: false, // Hide cursor to prevent the white line
+          onComplete: () => {
+            typedTarget.classList.add("done-typing");
+          }
+        });
+      }, 200); // Delay to make sure preloader is fully gone
+    }, 300); // Delay matches any fade-out animation (adjust as needed)
   } else {
     // If no preloader exists, initialize Typed.js immediately, only once
     if (typedTarget) {
-      typedTarget.textContent = "";
+      typedTarget.textContent = ""; // Clear existing text
       new Typed("#typed", {
         stringsElement: "#typed-strings", // Ensure this is your array of strings
-        typeSpeed: 25,
+        typeSpeed: 50, // Adjust typing speed
         backSpeed: 0,
         backDelay: 0,
         loop: false, // Prevent looping
-        showCursor: false, // Cursor is now hidden to prevent the white line
+        showCursor: false, // Hide cursor to prevent the white line
         onComplete: () => {
           typedTarget.classList.add("done-typing");
         }
