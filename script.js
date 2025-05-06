@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         backSpeed: 0,
         backDelay: 0,
         loop: false,
-        showCursor: true,
+        showCursor: false,
         onComplete: () => {
           typedTarget.classList.add("done-typing");
           const cursor = document.querySelector(".typed-cursor");
