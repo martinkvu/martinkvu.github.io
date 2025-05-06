@@ -1,12 +1,15 @@
-// === Toggle nav menu on hamburger click ===
+// === Toggle nav menu on hamburger or close (×) click ===
 function toggleMenu() {
   const nav = document.getElementById("nav-links");
   nav.classList.toggle("active");
+
+  // Prevent background scroll when menu is open
+  document.body.classList.toggle("no-scroll", nav.classList.contains("active"));
 }
 
 document.getElementById("menu-toggle").addEventListener("click", toggleMenu);
 
-// === Smooth scroll behavior and close menu after click ===
+// === Smooth scroll and close menu after link click ===
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
@@ -14,11 +17,15 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    document.getElementById("nav-links").classList.remove("active");
+
+    // Close menu and re-enable scrolling
+    const nav = document.getElementById("nav-links");
+    nav.classList.remove("active");
+    document.body.classList.remove("no-scroll");
   });
 });
 
-// === Highlight active link while scrolling ===
+// === Highlight active link on scroll ===
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('.nav-links a');
@@ -39,7 +46,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// === Preloader & Typing Animation ===
+// === Preloader and Typing Animation ===
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
