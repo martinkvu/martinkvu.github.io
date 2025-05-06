@@ -79,23 +79,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
     }, 300); // Delay matches any fade-out animation (adjust as needed)
-  } else {
-    // If no preloader exists, initialize Typed.js immediately
-    if (typedTarget) {
-      typedTarget.textContent = "";
-      new Typed("#typed", {
-        stringsElement: "#typed-strings",
-        typeSpeed: 5,
-        backSpeed: 0,
-        backDelay: 0,
-        loop: false,
-        showCursor: false,
-        onComplete: () => {
-          typedTarget.classList.add("done-typing");
-          const cursor = document.querySelector(".typed-cursor");
-          if (cursor) cursor.style.display = "none";
-        }
-      });
-    }
-  }
-});
+  } 
