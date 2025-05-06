@@ -42,6 +42,17 @@ header p {
 #typed {
   font-size: 3rem;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 0.15em solid white;
+  animation: typing-glitch-fix 0.01s step-start forwards;
+}
+
+@keyframes typing-glitch-fix {
+  0% {
+    transform: translateZ(0);
+  }
 }
 
 /* === NAVBAR STYLING === */
@@ -49,10 +60,15 @@ header p {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #0B318F; /* Updated: Solid background for visibility */
+  background: rgba(11, 49, 143, 0.85);
   z-index: 999;
   box-shadow: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(11, 49, 143, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-content {
@@ -97,7 +113,7 @@ header p {
 /* === Hamburger Icon === */
 .menu-toggle {
   font-size: 2rem;
-  color: #ffffff; /* Updated: Ensure visible over dark navbar */
+  color: #ffffff;
   cursor: pointer;
   display: none;
   z-index: 1100;
@@ -221,6 +237,8 @@ a {
 
 #contact {
   color: navy;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #contact a {
@@ -250,7 +268,6 @@ a {
   align-items: stretch;
 }
 
-/* Square Skill Box */
 .icon-box {
   background-color: navy;
   color: white;
@@ -285,7 +302,6 @@ a {
   color: white;
 }
 
-/* === SKILLS GRID BREAKPOINTS === */
 @media (min-width: 992px) {
   .skills-grid {
     grid-template-columns: repeat(5, 1fr);
@@ -310,7 +326,6 @@ a {
   }
 }
 
-/* === Remove extra styling from skills container & contact links === */
 .skills-grid,
 #contact .social-links {
   background: none !important;
@@ -326,14 +341,6 @@ footer {
   background-color: black;
   color: white;
   text-align: center;
-}
-
-#contact {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-footer {
   margin-top: 0;
 }
 
@@ -390,5 +397,4 @@ footer {
 body.no-scroll {
   overflow: hidden;
 }
-
 
