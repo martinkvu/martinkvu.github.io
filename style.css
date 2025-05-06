@@ -106,30 +106,30 @@ header p {
 /* === RESPONSIVE NAVBAR WITH SLIDE ANIMATION === */
 @media (max-width: 768px) {
   .nav-links {
-    display: flex; /* Always flex for animation */
+    display: flex;
     flex-direction: column;
     background-color: #0f1629;
     position: absolute;
     top: 70px;
     right: 20px;
-    padding: 1rem;
+    padding: 0; /* will animate in active */
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     width: 180px;
     z-index: 1000;
 
-    /* Slide-in animation */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: max-height 0.4s ease-in-out, opacity 0.4s ease;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease, padding 0.4s ease;
   }
 
   .nav-links.active {
     max-height: 500px;
     opacity: 1;
     pointer-events: auto;
+    padding: 1rem;
   }
 
   .nav-links a {
@@ -148,6 +148,7 @@ header p {
     color: white;
   }
 }
+
 .close-btn {
   align-self: flex-end;
   font-size: 1.75rem;
@@ -389,6 +390,7 @@ footer {
   }
 }
 
+/* === Prevent background scroll when menu is open === */
 body.no-scroll {
   overflow: hidden;
 }
