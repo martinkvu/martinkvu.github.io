@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typedTarget.textContent = "";
       new Typed("#typed", {
         stringsElement: "#typed-strings",
-        typeSpeed: 1,
+        typeSpeed: 0.5,
         backSpeed: 0,
         backDelay: 0,
         loop: false,
