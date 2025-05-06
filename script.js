@@ -7,47 +7,51 @@ function toggleMenu() {
   document.body.classList.toggle("no-scroll", nav.classList.contains("active"));
 }
 
-document.getElementById("menu-toggle").addEventListener("click", toggleMenu);
+// === DOM Ready ===
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-links");
 
-// === Smooth scroll and close menu after link click ===
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  // Hamburger menu toggle
+  if (menuToggle) {
+    menuToggle.addEventListener("click", toggleMenu);
+  }
 
-    // Close menu and re-enable scrolling
-    const nav = document.getElementById("nav-links");
-    nav.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  });
-});
-
-// === Highlight active link on scroll ===
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('.nav-links a');
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
+  // Smooth scroll and auto-close on nav link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const section = document.querySelector(this.getAttribute('href'));
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      nav.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    });
   });
 
-  links.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-});
+  // Highlight active link on scroll
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('.nav-links a');
+    let current = "";
 
-// === Preloader and Typing Animation ===
-window.addEventListener('load', () => {
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    links.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // Preloader and typing animation
   const preloader = document.getElementById('preloader');
   if (preloader) {
     preloader.style.display = 'none';
@@ -61,6 +65,7 @@ window.addEventListener('load', () => {
   }
 });
 
+// === Typing effect helper ===
 function typeText(text, element, speed) {
   let i = 0;
   function typeChar() {
