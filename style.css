@@ -59,8 +59,15 @@ header p {
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+}
+
+.nav-left .logo {
+  color: #0B318F;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
 }
 
 .nav-right {
@@ -87,38 +94,49 @@ header p {
   color: #2980b9;
 }
 
+/* Hamburger Icon */
 .menu-toggle {
   font-size: 2rem;
-  color: #333;
+  color: #0B318F;
   cursor: pointer;
   display: none;
+  z-index: 1100;
 }
 
 /* === RESPONSIVE NAVBAR === */
 @media (max-width: 768px) {
-  .nav-content {
-    justify-content: flex-end;
-  }
-
   .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
-    right: 2rem;
     flex-direction: column;
-    background-color: #f5f5f5;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #0f1629;
     padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     width: 180px;
+    z-index: 1000;
   }
 
   .nav-links.active {
     display: flex;
   }
 
+  .nav-links a {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links a:hover {
+    color: #00A3E6;
+  }
+
   .menu-toggle {
     display: block;
+    color: white;
   }
 }
 
@@ -305,9 +323,7 @@ footer {
   margin-top: 0;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
+/* === Preloader === */
 #preloader {
   position: fixed;
   top: 0;
@@ -322,7 +338,6 @@ footer {
   align-items: center;
 }
 
-/* Music Wave Animation */
 #preloader .music-loader {
   display: flex;
   gap: 5px;
@@ -339,7 +354,6 @@ footer {
   animation: wave-scale 1s infinite ease-in-out;
 }
 
-/* Mirrored delays for wave effect */
 #preloader .music-loader span:nth-child(1) { animation-delay: 0s; }
 #preloader .music-loader span:nth-child(2) { animation-delay: 0.15s; }
 #preloader .music-loader span:nth-child(3) { animation-delay: 0.3s; }
@@ -347,101 +361,13 @@ footer {
 #preloader .music-loader span:nth-child(5) { animation-delay: 0s; }
 
 @keyframes wave-scale {
-  0%, 100% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(2); /* grows up and down from center */
-  }
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(2); }
 }
 
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+/* === AOS Reset for Mobile === */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
-  }
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  height: 100%;
-  width: 80%;
-  max-width: 300px;
-  background-color: #0B318F;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem 1.5rem;
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  width: 100%;
-}
-
-.mobile-menu a:hover {
-  color: #00A3E6;
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-.menu-toggle {
-  font-size: 2rem;
-  color: #0B318F;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.close-btn {
-  font-size: 2rem;
-  align-self: flex-end;
-  cursor: pointer;
-  margin-bottom: 2rem;
-}  
-
-/* Mobile nav toggle */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 2rem;
-  color: white;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #0f1629;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 1rem;
-    border-radius: 8px;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
   }
 }
