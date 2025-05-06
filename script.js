@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Highlight active link on scroll
+  // Highlight active nav link based on scroll position
   window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     const links = document.querySelectorAll('.nav-links a');
@@ -51,38 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Preloader and typing animation
+  // Hide preloader if exists
   const preloader = document.getElementById('preloader');
   if (preloader) {
     preloader.style.display = 'none';
   }
-
   document.body.classList.add('loaded');
 
+  // Initialize Typed.js
   const typedTarget = document.getElementById("typed");
   if (typedTarget) {
-    typeText("Hi, I'm Martin Vu", typedTarget, 100);
+    new Typed("#typed", {
+      stringsElement: "#typed-strings",
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true
+    });
   }
-});
-
-// === Typing effect helper ===
-function typeText(text, element, speed) {
-  let i = 0;
-  function typeChar() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeChar, speed);
-    }
-  }
-  typeChar();
-}
-document.addEventListener("DOMContentLoaded", function () {
-  var typed = new Typed("#typed", {
-    stringsElement: "#typed-strings",
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 2000,
-    loop: true
-  });
 });
