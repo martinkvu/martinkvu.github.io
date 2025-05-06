@@ -31,9 +31,32 @@ window.addEventListener('scroll', () => {
 
   links.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === #${current}) {
+    if (link.getAttribute("href") === `#${current}`) {
       link.classList.add("active");
     }
   });
 });
-section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+// Typing effect after preloader
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.style.display = 'none';
+  }
+
+  document.body.classList.add('loaded'); // For any CSS fade-ins
+
+  typeText("Hi, I'm Martin Vu", document.getElementById("typed"), 100);
+});
+
+function typeText(text, element, speed) {
+  let i = 0;
+  function typeChar() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeChar, speed);
+    }
+  }
+  typeChar();
+}
