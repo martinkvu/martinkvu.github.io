@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (typedTarget) {
         typedTarget.textContent = ""; // Clear existing text
 
-        // Use a timeout to ensure the animation starts after the preloader disappears
+        // Wait a small time to ensure that the preloader has disappeared
         setTimeout(() => {
           new Typed("#typed", {
             stringsElement: "#typed-strings", // Ensure this is your array of strings
@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
               typedTarget.classList.add("done-typing");
             }
           });
-        }, 100); // Add small delay to ensure the preloader is fully hidden before typing starts
+        }, 200); // Adjusted delay to make sure preloader disappears properly
       }
-    }, 300); // Delay matches any fade-out animation (adjust as needed)
+    }, 300); // Ensure delay matches fade-out animation of preloader
   } else {
     // If no preloader exists, initialize Typed.js immediately, only once
     if (typedTarget) {
