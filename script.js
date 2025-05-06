@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         typedTarget.textContent = ""; // Clear existing text
         new Typed("#typed", {
           stringsElement: "#typed-strings", // Ensure this is your array of strings
-          typeSpeed: 25,
+          typeSpeed: 1,
           backSpeed: 0,
           backDelay: 0,
           loop: false, // Prevent looping
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typedTarget.textContent = "";
       new Typed("#typed", {
         stringsElement: "#typed-strings", // Ensure this is your array of strings
-        typeSpeed: 25,
+        typeSpeed: 1,
         backSpeed: 0,
         backDelay: 0,
         loop: false, // Prevent looping
