@@ -66,13 +66,15 @@ document.addEventListener("DOMContentLoaded", function () {
         typedTarget.textContent = ""; // Clear existing text
         new Typed("#typed", {
           stringsElement: "#typed-strings",
-          typeSpeed: 25,
+          typeSpeed: 0,
           backSpeed: 0,
           backDelay: 0,
           loop: false,
-          showCursor: false, // Cursor is now hidden to prevent the white line
+          showCursor: false,
           onComplete: () => {
             typedTarget.classList.add("done-typing");
+            const cursor = document.querySelector(".typed-cursor");
+            if (cursor) cursor.style.display = "none";
           }
         });
       }
@@ -87,9 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
         backSpeed: 0,
         backDelay: 0,
         loop: false,
-        showCursor: false, // Cursor is now hidden to prevent the white line
+        showCursor: true,
         onComplete: () => {
           typedTarget.classList.add("done-typing");
+          const cursor = document.querySelector(".typed-cursor");
+          if (cursor) cursor.style.display = "none";
         }
       });
     }
