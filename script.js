@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
         typedTarget.textContent = ""; // Clear existing text
         new Typed("#typed", {
           stringsElement: "#typed-strings",
-          typeSpeed: 0,
+          typeSpeed: 25,
           backSpeed: 0,
           backDelay: 0,
           loop: false,
-          showCursor: false,
+          showCursor: true,
           onComplete: () => {
             typedTarget.classList.add("done-typing");
             const cursor = document.querySelector(".typed-cursor");
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typedTarget.textContent = "";
       new Typed("#typed", {
         stringsElement: "#typed-strings",
-        typeSpeed: 25,
+        typeSpeed: 0,
         backSpeed: 0,
         backDelay: 0,
         loop: false,
