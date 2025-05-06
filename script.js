@@ -64,9 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
     new Typed("#typed", {
       stringsElement: "#typed-strings",
       typeSpeed: 50,
-      backSpeed: 25,
-      backDelay: 2000,
-      loop: true
+      backSpeed: 0,
+      backDelay: 0,
+      loop: false,
+       onComplete: () => {
+    document.getElementById("typed").classList.add("done-typing");
+  }
     });
   }
 });
