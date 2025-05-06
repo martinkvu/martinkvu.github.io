@@ -148,6 +148,13 @@ header p {
     color: white;
   }
 }
+.close-btn {
+  align-self: flex-end;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 1rem;
+}
 
 /* === MAIN SECTION === */
 main {
@@ -380,4 +387,8 @@ footer {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
