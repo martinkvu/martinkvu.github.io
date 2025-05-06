@@ -52,11 +52,15 @@ header p {
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  border-right: 2px solid white;
   padding-right: 5px;
-  animation: typing-glitch-fix 0.01s step-start forwards, blink-caret 0.8s step-end infinite;
   max-width: 100%;
   z-index: 2;
+  border-right: 2px solid white; /* Visible while typing */
+  animation: typing-glitch-fix 0.01s step-start forwards;
+}
+
+body.loaded #typed.done-typing {
+  border-right: none; /* Remove blinking line after done typing */
 }
 
 #typed-strings {
@@ -72,6 +76,11 @@ header p {
 @keyframes blink-caret {
   0%, 100% { border-color: transparent; }
   50% { border-color: white; }
+}
+
+/* If blinking was used before, override it after typing ends */
+body.loaded #typed.done-typing {
+  animation: none;
 }
 
 /* === NAVBAR STYLING === */
