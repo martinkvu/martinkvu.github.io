@@ -77,3 +77,12 @@ function typeText(text, element, speed) {
   }
   typeChar();
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var typed = new Typed("#typed", {
+    stringsElement: "#typed-strings",
+    typeSpeed: 50,
+    backSpeed: 25,
+    backDelay: 2000,
+    loop: true
+  });
+});
