@@ -100,7 +100,8 @@ body.loaded #typed {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  height: 20px; 
+  background: rgba(11, 49, 143, 0.85);  
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
@@ -140,15 +141,7 @@ body.loaded #typed {
   display: none;
 }
 
-/* Make the background extend slightly below the buttons */
-.navbar::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 5px;
-}
+
 
 /* Desktop Navigation */
 .desktop-nav {
