@@ -109,21 +109,16 @@ body.loaded #typed {
   padding: 1rem 2rem;
 }
 
-.nav-right {
+/* Desktop Navigation */
+.desktop-nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 2rem;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
   margin-right: 2rem;
 }
 
-.nav-links a {
+.desktop-nav a {
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -131,13 +126,13 @@ body.loaded #typed {
   transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.desktop-nav a:hover,
+.desktop-nav a.active {
   color: #00A3E6;
 }
 
 /* Adjust z-index to ensure visibility over hero section */
-.navbar, .nav-right {
+.navbar, .desktop-nav {
   z-index: 1200;
 }
 
@@ -148,7 +143,7 @@ body.loaded #typed {
   .dropdown-menu {
     display: none !important;
   }
-  .nav-right {
+  .desktop-nav {
     display: flex;
     justify-content: flex-end;
     margin-right: 2rem;
@@ -158,45 +153,6 @@ body.loaded #typed {
 .navbar.scrolled {
   background: rgba(11, 49, 143, 0.95);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.nav-content {
-  width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.nav-right .logo {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.25rem;
-  text-decoration: none;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #00A3E6;
 }
 
 /* === Hamburger Icon === */
