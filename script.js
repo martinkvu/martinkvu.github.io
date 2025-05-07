@@ -1,44 +1,43 @@
-// === Toggle nav menu on hamburger or close (×) click ===
-function toggleMenu() {
-  const nav = document.getElementById("nav-links");
-  nav.classList.toggle("active");
-
-  // Prevent background scroll when menu is open
-  document.body.classList.toggle("no-scroll", nav.classList.contains("active"));
-}
-
-// === DOM Ready ===
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav-links");
+  const typedTarget = document.getElementById("typed");
+  const preloader = document.getElementById("preloader");
 
-  // Hamburger menu toggle
+  function toggleMenu() {
+    menuToggle.classList.toggle("open");
+    nav.classList.toggle("active");
+    document.body.classList.toggle("no-scroll", nav.classList.contains("active"));
+  }
+
+  // === Hamburger click toggle ===
   if (menuToggle) {
     menuToggle.addEventListener("click", toggleMenu);
   }
 
-  // Smooth scroll and auto-close on nav link click
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  // === Smooth scroll + close dropdown on click ===
+  document.querySelectorAll('.dropdown-menu a').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const section = document.querySelector(this.getAttribute('href'));
       if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+      menuToggle.classList.remove("open");
       nav.classList.remove("active");
       document.body.classList.remove("no-scroll");
     });
   });
 
-  // Highlight active nav link based on scroll position
+  // === Highlight current nav link ===
   window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
-    const links = document.querySelectorAll('.nav-links a');
+    const links = document.querySelectorAll('.desktop-nav a');
     let current = "";
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
-      if (pageYOffset >= sectionTop) {
+      if (window.scrollY >= sectionTop) {
         current = section.getAttribute("id");
       }
     });
@@ -51,52 +50,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Handle Preloader ===
-  const preloader = document.getElementById('preloader');
-  const typedTarget = document.getElementById('typed');
-
-  //if (preloader) {
+  // === Preloader + Typed.js animation ===
+  if (preloader) {
     setTimeout(() => {
-      // Hide the preloader
-      preloader.style.display = 'none';
-      document.body.classList.add('loaded');
+      preloader.style.display = "none";
+      document.body.classList.add("loaded");
 
-      // Start typing animation AFTER preloader disappears
-      //if (typedTarget) {
-        //typedTarget.textContent = ""; // Clear existing text
-        //new Typed("#typed", {
-          //stringsElement: "#typed-strings",
-          //typeSpeed: 0,
-          //backSpeed: 0,
-          //backDelay: 0,
-          //loop: false,
-          //showCursor: false,
-          //onComplete: () => {
-            //typedTarget.classList.add("done-typing");
-            /const cursor = document.querySelector(".typed-cursor");
-            //if (cursor) cursor.style.display = "none";
-          //}
-        //});
-      //}
-    //}, 300); // Delay matches any fade-out animation (adjust as needed)
-  //} 
-  //else {
-    // If no preloader exists, initialize Typed.js immediately
-    if (typedTarget) {
-      typedTarget.textContent = "";
-      new Typed("#typed", {
-        stringsElement: "#typed-strings",
-        typeSpeed: 0.5,
-        backSpeed: 0,
-        backDelay: 0,
-        loop: false,
-        showCursor: false,
-        onComplete: () => {
-          typedTarget.classList.add("done-typing");
-          const cursor = document.querySelector(".typed-cursor");
-          if (cursor) cursor.style.display = "none";
-        }
-      });
-    }
+      if (typedTarget) {
+        typedTarget.textContent = "";
+        new Typed("#typed", {
+          stringsElement: "#typed-strings",
+          typeSpeed: 50,
+          backSpeed: 30,
+          backDelay: 1500,
+          loop: false,
+          showCursor: false,
+          onComplete: () => {
+            typedTarget.classList.add("done-typing");
+            const cursor = document.querySelector(".typed-cursor");
+            if (cursor) cursor.style.display = "none";
+          }
+        });
+      }
+    }, 1500); // Adjust to match your preloader duration
   }
 });
