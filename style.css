@@ -45,6 +45,7 @@ header h1 {
 header p {
   font-size: 1.5rem;
 }
+
 /* === TYPING EFFECT === */
 #typed {
   font-size: 3rem;
@@ -99,11 +100,48 @@ body.loaded #typed {
   top: 0;
   width: 100%;
   background: rgba(11, 49, 143, 0.85);
-  z-index: 1102; /* higher than dropdown menu */
+  z-index: 1200; /* higher than dropdown menu */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 1rem 2rem;
+}
+
+.desktop-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.desktop-nav a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  color: #00A3E6;
+}
+
+/* Adjust z-index to ensure visibility over hero section */
+.navbar, .desktop-nav {
+  z-index: 1200;
+}
+
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+  .dropdown-menu {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex;
+  }
 }
 
 .navbar.scrolled {
@@ -583,3 +621,4 @@ body.no-scroll {
   transition: right 0.4s ease;
   z-index: 1100; /* less than .navbar and .menu-toggle */
 }
+
