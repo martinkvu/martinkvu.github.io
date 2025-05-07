@@ -535,3 +535,16 @@ body.no-scroll {
     display: flex;
   }
 }
+
+/* Keep hamburger/X on top of menu */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1101; /* must be higher than .dropdown-menu */
+}
+
+/* Ensure dropdown doesn't overlap or hide the X */
+.dropdown-menu {
+  z-index: 1100; /* less than .menu-toggle */
+}
