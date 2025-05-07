@@ -94,10 +94,12 @@ body.loaded #typed {
     transform: translateZ(0);
   }
 }
+
 /* === NAVBAR STYLING === */
 .navbar {
   position: fixed;
   top: 0;
+  right: 0;
   width: 100%;
   background: rgba(11, 49, 143, 0.85);
   z-index: 1200; /* higher than dropdown menu */
@@ -141,6 +143,7 @@ body.loaded #typed {
   }
   .desktop-nav {
     display: flex;
+    justify-content: flex-end;
   }
 }
 
