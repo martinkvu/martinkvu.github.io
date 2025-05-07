@@ -118,7 +118,9 @@ body.loaded #typed {
 
 .nav-links {
   display: flex;
+  justify-content: flex-end;
   gap: 2rem;
+  margin-right: 2rem;
 }
 
 .nav-links a {
@@ -162,7 +164,7 @@ body.loaded #typed {
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
