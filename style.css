@@ -500,18 +500,35 @@ body.no-scroll {
 }
 
 /* Desktop Navigation Links */
+/* Desktop Navigation Links (Left-Aligned + Red Text) */
 .desktop-nav {
   display: none;
 }
-.desktop-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-.desktop-nav a:hover {
-  color: #00bfff;
+
+@media (min-width: 1025px) {
+  .desktop-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .desktop-nav a {
+    color: red;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    color: darkred;
+  }
 }
 
 /* RESPONSIVE RULES */
