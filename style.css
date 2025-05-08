@@ -122,7 +122,7 @@ body.loaded #typed {
 
 /* Restrict the navigation bar from extending beyond the left side */
 .navbar {
-  max-width: calc(100% - 5px); /* Adjust as needed */
+  max-width: calc(100% - 0px); /* Adjust as needed */
 }
 
 .nav-links {
