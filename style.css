@@ -136,6 +136,7 @@ body.loaded #typed {
   z-index: 1000;
   transition: all 0.3s ease;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -169,6 +170,37 @@ body.loaded #typed {
 
 .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === Desktop Navigation === */
+.desktop-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.desktop-nav a {
+  color: red;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-left: auto;
+  transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  color: darkred;
+}
+
+@media (min-width: 1025px) {
+  .desktop-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
 }
 
 /* Responsive for Mobile */
@@ -205,7 +237,6 @@ body.loaded #typed {
     max-height: 400px;
   }
 }
-
 
 /* Desktop-Specific */
 @media (min-width: 1025px) {
