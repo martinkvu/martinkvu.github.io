@@ -120,11 +120,6 @@ body.loaded #typed {
   padding: 0 2rem;
 }
 
-/* Restrict the navigation bar from extending beyond the left side */
-.navbar {
-  max-width: calc(100% - 0px); /* Adjust as needed */
-}
-
 .nav-links {
   display: flex;
   gap: 1.5rem;
