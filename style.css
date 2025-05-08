@@ -99,10 +99,9 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  width: 100vw; /* Full viewport width */
   height: 60px;
-  background-color: #0b318f; /* Solid dark blue color */
+  background-color: rgba(11, 49, 143, 0.85); /* Default transparent for mobile */
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
@@ -111,40 +110,47 @@ body.loaded #typed {
   align-items: center;
 }
 
+/* Non-Transparent Background for Desktop */
+@media (min-width: 1025px) {
+  .navbar {
+    background-color: #0f172a; /* Solid non-transparent color */
+  }
+}
+
 .nav-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 100%; /* Full width */
-  margin: 0;
+  max-width: 100%; /* Stretch to full width */
+  margin: 0 auto;
   padding: 0 2rem;
 }
 
 .desktop-nav {
   display: flex;
-  gap: 2rem; /* Increased gap for better spacing */
+  gap: 1.5rem;
   margin-left: auto;
   justify-content: flex-end;
 }
 
 .desktop-nav a {
-  color: white; /* Bright white for better contrast */
+  color: darkred;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.2rem; /* Slightly larger for better readability */
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
-  color: #ff4500; /* Bright orange for better visibility on hover and active */
+  color: white;
 }
 
 /* Responsive for Mobile */
 @media (max-width: 768px) {
   .navbar {
-    background: #0b318f; /* Non-transparent for mobile as well */
+    background: transparent; /* Transparent for mobile */
     width: 100%;
   }
 
@@ -250,6 +256,28 @@ body.loaded #typed {
 
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-10px);
+}
+
+/* RESPONSIVE RULES */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+  .dropdown-menu {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex;
+  }
 }
 
 /* Prevent background scroll when menu is open */
