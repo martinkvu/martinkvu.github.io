@@ -99,9 +99,10 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw; /* Full viewport width */
   height: 60px;
-  background-color: rgba(11, 49, 143, 0.85);
+  background-color: #0b318f; /* Solid color (non-transparent) */
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
@@ -115,15 +116,15 @@ body.loaded #typed {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%; /* Full width for desktop */
+  margin: 0;
   padding: 0 2rem;
 }
 
 .desktop-nav {
   display: flex;
   gap: 1.5rem;
-  margin-left: auto;
+  margin-left: auto; /* Move to the right */
   justify-content: flex-end;
 }
 
