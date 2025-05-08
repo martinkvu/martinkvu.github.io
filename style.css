@@ -95,36 +95,6 @@ body.loaded #typed {
   }
 }
 
-/* === Desktop Navigation === */
-.desktop-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-  margin-left: auto;
-}
-
-.desktop-nav a {
-  color: red;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.desktop-nav a:hover,
-.desktop-nav a.active {
-  color: darkred;
-}
-
-@media (min-width: 1025px) {
-  .desktop-nav {
-    display: flex;
-    justify-content: flex-end;
-    margin-left: auto;
-  }
-}
-
 /* === NAVBAR STYLING === */
 .navbar {
   position: fixed;
@@ -177,7 +147,7 @@ body.loaded #typed {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-left: auto;
 }
 
@@ -186,7 +156,6 @@ body.loaded #typed {
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
-  margin-left: auto;
   transition: color 0.3s ease;
 }
 
