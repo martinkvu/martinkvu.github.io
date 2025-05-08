@@ -113,7 +113,7 @@ body.loaded #typed {
 /* Non-Transparent Background for Desktop */
 @media (min-width: 1025px) {
   .navbar {
-    background-color: #4169E1; /* Solid non-transparent color */
+    background-color: #0b318f; /* Solid non-transparent color */
   }
 }
 
