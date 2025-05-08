@@ -128,7 +128,7 @@ body.loaded #typed {
 }
 
 .desktop-nav a {
-  color: red;
+  color: darkred;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
@@ -137,7 +137,7 @@ body.loaded #typed {
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
-  color: darkred;
+  color: white;
 }
 
 /* Responsive for Mobile */
