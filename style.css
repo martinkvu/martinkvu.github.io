@@ -192,6 +192,39 @@ body.loaded #typed {
   .desktop-nav {
     display: flex;
     justify-content: flex-end;
+    margin-left: auto;
+  }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    background: transparent;
+    width: 100%;
+  }
+
+  .nav-content {
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop-Specific */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+  .dropdown-menu {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex;
+    justify-content: flex-end;
     margin-right: 2rem;
   }
 }
