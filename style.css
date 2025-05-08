@@ -119,6 +119,7 @@ body.loaded #typed {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  float: right;
 }
 
 .nav-links {
@@ -200,6 +201,7 @@ body.loaded #typed {
     display: flex;
     justify-content: flex-end;
     margin-right: 2rem;
+    float: right;
   }
 }
 
