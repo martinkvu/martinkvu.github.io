@@ -100,8 +100,8 @@ body.loaded #typed {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 48px; 
-  background: rgba(11, 49, 143, 0.85);  
+  height: 48px;
+  background-color: rgba(11, 49, 143, 0.85); /* Solid color for desktop */
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
@@ -118,6 +118,11 @@ body.loaded #typed {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Restrict the navigation bar from extending beyond the left side */
+.navbar {
+  max-width: calc(100% - 20px); /* Adjust as needed */
 }
 
 .nav-links {
@@ -139,6 +144,24 @@ body.loaded #typed {
 
 .menu-toggle {
   display: none;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    background: transparent;
+    width: 100%;
+  }
+
+  .nav-content {
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+  }
 }
 
 
