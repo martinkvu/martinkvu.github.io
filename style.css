@@ -99,7 +99,7 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  width: 100vw; /* Full viewport width */
+  width: calc(100% - 17px); /* Full viewport width */
   height: 60px;
   background-color: rgba(11, 49, 143, 0.85); /* Default transparent for mobile */
   padding: 1rem 0;
@@ -113,7 +113,7 @@ body.loaded #typed {
 /* Non-Transparent Background for Desktop */
 @media (min-width: 1025px) {
   .navbar {
-    background-color: #0f172a; /* Solid non-transparent color */
+    background-color: #4169E1; /* Solid non-transparent color */
   }
 }
 
@@ -135,7 +135,7 @@ body.loaded #typed {
 }
 
 .desktop-nav a {
-  color: darkred;
+  color: white;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
@@ -144,7 +144,7 @@ body.loaded #typed {
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
-  color: white;
+  color: #CC0000;
 }
 
 /* Responsive for Mobile */
@@ -166,7 +166,7 @@ body.loaded #typed {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #0f172a;
+    background-color: #4169E1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -240,7 +240,7 @@ body.loaded #typed {
 .menu-toggle span {
   height: 4px;
   width: 100%;
-  background-color: white;
+  background-color: #CC0000;  
   border-radius: 2px;
   transition: all 0.4s ease;
   transform-origin: center;
