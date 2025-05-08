@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      // Close menu on mobile
       if (window.innerWidth <= 1024) {
         menuToggle.classList.remove("open");
         nav.classList.remove("active");
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           });
         }
-      }, 1500); // Match with your preloader duration
+      }, 1500);
     });
   }
 
