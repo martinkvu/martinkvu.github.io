@@ -515,19 +515,20 @@ body.no-scroll {
 .dropdown-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   background-color: #0f172a;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: right 0.4s ease;
+  transition: transform 0.4s ease;
+  transform: translateX(100%);
   z-index: 1000;
 }
 .dropdown-menu.active {
-  right: 0;
+  transform: translateX(0);
 }
 .dropdown-menu a {
   color: white;
