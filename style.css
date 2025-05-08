@@ -100,7 +100,7 @@ body.loaded #typed {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Fix to avoid scroll bar collision */
+  width: 100vw;
   height: 60px;
   background-color: #0b318f; /* Solid dark blue color */
   padding: 1rem 0;
@@ -109,7 +109,6 @@ body.loaded #typed {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box; /* Ensure padding is inside the width */
 }
 
 .nav-content {
@@ -117,7 +116,7 @@ body.loaded #typed {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 100%; /* Full width without overlap */
+  max-width: 100%; /* Full width */
   margin: 0;
   padding: 0 2rem;
 }
@@ -133,7 +132,7 @@ body.loaded #typed {
   color: white; /* Bright white for better contrast */
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Slightly larger for better readability */
   transition: color 0.3s ease;
 }
 
@@ -146,7 +145,7 @@ body.loaded #typed {
 @media (max-width: 768px) {
   .navbar {
     background: #0b318f; /* Non-transparent for mobile as well */
-    width: 100%; /* Prevent scroll bar collision */
+    width: 100%;
   }
 
   .menu-toggle {
