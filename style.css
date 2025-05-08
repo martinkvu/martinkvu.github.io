@@ -100,15 +100,16 @@ body.loaded #typed {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Full viewport width */
+  width: 100%; /* Fix to avoid scroll bar collision */
   height: 60px;
-  background-color: #0b318f; /* Solid color (non-transparent) */
+  background-color: #0b318f; /* Solid dark blue color */
   padding: 1rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box; /* Ensure padding is inside the width */
 }
 
 .nav-content {
@@ -116,36 +117,36 @@ body.loaded #typed {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 100%; /* Full width for desktop */
+  max-width: 100%; /* Full width without overlap */
   margin: 0;
   padding: 0 2rem;
 }
 
 .desktop-nav {
   display: flex;
-  gap: 1.5rem;
-  margin-left: auto; /* Move to the right */
+  gap: 2rem; /* Increased gap for better spacing */
+  margin-left: auto;
   justify-content: flex-end;
 }
 
 .desktop-nav a {
-  color: darkred;
+  color: white; /* Bright white for better contrast */
   font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 .desktop-nav a:hover,
 .desktop-nav a.active {
-  color: white;
+  color: #ff4500; /* Bright orange for better visibility on hover and active */
 }
 
 /* Responsive for Mobile */
 @media (max-width: 768px) {
   .navbar {
-    background: transparent;
-    width: 100%;
+    background: #0b318f; /* Non-transparent for mobile as well */
+    width: 100%; /* Prevent scroll bar collision */
   }
 
   .menu-toggle {
@@ -250,28 +251,6 @@ body.loaded #typed {
 
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-10px);
-}
-
-/* RESPONSIVE RULES */
-@media (max-width: 1024px) {
-  .menu-toggle {
-    display: flex;
-  }
-  .desktop-nav {
-    display: none;
-  }
-}
-
-@media (min-width: 1025px) {
-  .menu-toggle {
-    display: none;
-  }
-  .dropdown-menu {
-    display: none !important;
-  }
-  .desktop-nav {
-    display: flex;
-  }
 }
 
 /* Prevent background scroll when menu is open */
