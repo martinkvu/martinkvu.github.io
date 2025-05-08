@@ -122,10 +122,9 @@ body.loaded #typed {
 
 .desktop-nav {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   gap: 1.5rem;
   margin-left: auto;
+  justify-content: flex-end;
 }
 
 .desktop-nav a {
@@ -193,6 +192,12 @@ body.loaded #typed {
     justify-content: flex-end;
     margin-left: auto;
   }
+}
+
+/* Adjust alignment issue */
+.navbar .nav-content .desktop-nav {
+  margin-left: auto;
+  justify-content: flex-end;
 }
 
 /* === RESPONSIVE NAVBAR === */
