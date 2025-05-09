@@ -190,7 +190,7 @@ body.loaded #typed {
   }
 
   .dropdown-menu a:hover {
-    color: #00bfff;
+    color: #CC0000;  
   }
 
   .desktop-nav {
@@ -308,6 +308,12 @@ body.no-scroll {
   transition: transform 0.4s ease;
   transform: translateX(100%);
   z-index: 1100;
+}
+/* Change Background color of dropdown-menu*/
+@media (min-width: 1025px) {
+  .dropdown-menu {
+    background-color: #0b318f; /* Solid non-transparent color */
+  }
 }
 
 .dropdown-menu.active {
