@@ -99,7 +99,7 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  width: calc(100% - 17px); /* Full viewport width */
+  width: calc(100% - 15px); /* Full viewport width */
   height: 60px;
   background-color: rgba(11, 49, 143, 0.85); /* Default transparent for mobile */
   padding: 1rem 0;
