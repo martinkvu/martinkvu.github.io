@@ -129,10 +129,10 @@ body.loaded #typed {
 
 .desktop-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-left: auto;
   justify-content: flex-end;
-  margin-right: 1.5rem; /* Added margin to shift the nav links left */
+  margin-right: 2rem; /* Added margin to shift the nav links left */
 }
 
 .desktop-nav a {
