@@ -182,6 +182,7 @@ body.loaded #typed {
 
   .dropdown-menu a {
     color: white;
+    background-color: #0b318f;
     font-size: 1.5rem;
     margin: 1rem 0;
     text-decoration: none;
