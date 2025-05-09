@@ -122,7 +122,7 @@ body.loaded #typed {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 100%; /* Stretch to full width */
+  max-width: calc(100% - 2rem); /* Adjusted to add space on the right */
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -132,6 +132,7 @@ body.loaded #typed {
   gap: 1.5rem;
   margin-left: auto;
   justify-content: flex-end;
+  margin-right: 1.5rem; /* Added margin to shift the nav links left */
 }
 
 .desktop-nav a {
@@ -150,7 +151,7 @@ body.loaded #typed {
 /* Responsive for Mobile */
 @media (max-width: 768px) {
   .navbar {
-    background: transparent; /* Transparent for mobile */
+    background: transparent;
     width: 100%;
   }
 
@@ -309,7 +310,6 @@ body.no-scroll {
   transform: translateX(100%);
   z-index: 1100;
 }
-
 
 .dropdown-menu.active {
   transform: translateX(0);
