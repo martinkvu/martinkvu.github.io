@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const typedTarget = document.getElementById("typed");
   const preloader = document.getElementById("preloader");
 
+  // === Toggle navigation menu ===
   function toggleMenu() {
     menuToggle.classList.toggle("open");
     nav.classList.toggle("active");
@@ -24,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      // Close menu on mobile
       if (window.innerWidth <= 1024) {
         menuToggle.classList.remove("open");
         nav.classList.remove("active");
@@ -56,26 +56,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Preloader + Typed.js animation ===
   if (preloader) {
-    setTimeout(() => {
-      preloader.style.display = "none";
-      document.body.classList.add("loaded");
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        preloader.style.display = "none";
+        document.body.classList.add("loaded");
 
-      if (typedTarget) {
-        typedTarget.textContent = "";
-        new Typed("#typed", {
-          stringsElement: "#typed-strings",
-          typeSpeed: 50,
-          backSpeed: 30,
-          backDelay: 1500,
-          loop: false,
-          showCursor: false,
-          onComplete: () => {
-            typedTarget.classList.add("done-typing");
-            const cursor = document.querySelector(".typed-cursor");
-            if (cursor) cursor.style.display = "none";
-          }
-        });
-      }
-    }, 1500); // Adjust to match your preloader duration
+        if (typedTarget) {
+          typedTarget.textContent = "";
+          new Typed("#typed", {
+            stringsElement: "#typed-strings",
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1500,
+            loop: false,
+            showCursor: false,
+            onComplete: () => {
+              typedTarget.classList.add("done-typing");
+              const cursor = document.querySelector(".typed-cursor");
+              if (cursor) cursor.style.display = "none";
+            }
+          });
+        }
+      }, 1500);
+    });
   }
+
+  // === Close menu on outside click (for mobile) ===
+  document.addEventListener("click", function (e) {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      nav.classList.remove("active");
+      menuToggle.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    }
+  });
 });
