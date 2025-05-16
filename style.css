@@ -18,7 +18,7 @@ html, body {
 header {
   width: 100vw;
   height: 100vh;
-  background-image: url(https://martinkvu.github.io/assets/IMG_2433.jpg);
+  background-image: url('https://martinkvu.github.io/assets/IMG_2433.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
