@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // === Navbar background change on section scroll ===
-    const sectionsToObserve = ['#about', '#skills', '#experience', '#projects', '#contact'];
+    const sectionsToObserve = ['#skills', '#experience', '#projects', '#contact'];
     sectionsToObserve.forEach(sectionId => {
         const section = document.querySelector(sectionId);
         if (section) {
