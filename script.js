@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.querySelector(".dropdown-menu");
+    const nav = document.getElementById("nav-links");
     const desktopNav = document.querySelector(".desktop-nav");
     const typedTarget = document.getElementById("typed");
     const preloader = document.getElementById("preloader");
