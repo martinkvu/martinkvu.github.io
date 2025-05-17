@@ -130,7 +130,15 @@ body.loaded #typed {
     background-color: #0b318f;
   }
 }
-
+/* Desktop-Specific */
+@media (max-width: 1024px) {
+  .navbar {
+    background-color: transparent;
+  }
+  .navbar.scrolled {
+    background-color: transparent;
+  }
+}
 .nav-content {
   display: flex;
   justify-content: space-between;
