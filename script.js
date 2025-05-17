@@ -108,9 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             navbar.classList.add('scrolled');
-                        } else {
-                            navbar.classList.remove('scrolled');
-                        }
+                        } 
                     });
                 },
                 { root: null, threshold: 0.1 }
