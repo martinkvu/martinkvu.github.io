@@ -208,3 +208,28 @@ document.addEventListener('DOMContentLoaded', function () {
   // Observe the about section
   observer.observe(aboutSection);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.querySelector(".dropdown-menu");
+  const desktopNav = document.querySelector(".desktop-nav");
+
+  function toggleMenu() {
+    menuToggle.classList.toggle("open");
+    nav.classList.toggle("active");
+    document.body.classList.toggle("no-scroll", nav.classList.contains("active"));
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", toggleMenu);
+  }
+
+  // Close menu on outside click (for mobile)
+  document.addEventListener("click", function (e) {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      nav.classList.remove("active");
+      menuToggle.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    }
+  });
+});
