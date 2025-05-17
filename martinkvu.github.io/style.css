@@ -1,0 +1,782 @@
+/* === RESET STYLES === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* === HEADER SECTION (Hero) === */
+header {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./assets/YNPBackgrounds.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+/* === TYPING EFFECT === */
+#typed {
+  font-size: 3rem;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  padding-right: 5px;
+  max-width: 100%;
+  z-index: 2;
+  border-right: 2px solid transparent; /* Hide border initially */
+  visibility: hidden; /* Hide until preloader ends */
+  transition: visibility 0s 0.3s, border-color 0s 0.3s; /* Smooth transition for visibility */
+}
+
+body.loaded #typed {
+  visibility: visible;
+  border-right: 2px solid white; /* Show border when typing starts */
+}
+
+#typed-strings {
+  display: none;
+}
+
+#typed.done-typing {
+  border-right: none !important;
+}
+
+.typed-cursor {
+  font-size: 3rem;
+  color: white;
+  animation: blink-caret 0.8s step-end infinite;
+}
+
+#typed.done-typing + .typed-cursor {
+  display: none !important;
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+@keyframes typing-glitch-fix {
+  0% {
+    transform: translateZ(0);
+  }
+}
+
+/* === NAVBAR STYLING === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Full viewport width */
+  height: 60px;
+  background-color: rgba(11, 49, 143, 0.85); /* Default transparent for mobile */
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Transparent Navbar (at header) */
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Solid Navbar after scrolling past the header */
+.navbar.scrolled {
+  background-color: #0b318f; /* Solid navy */
+}
+
+/* Desktop-Specific */
+@media (min-width: 1025px) {
+  .navbar {
+    background-color: transparent;
+  }
+  .navbar.scrolled {
+    background-color: #0b318f;
+  }
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: calc(100% - 2rem); /* Adjusted to add space on the right */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 1.25rem;
+  margin-left: auto;
+  justify-content: flex-end;
+  margin-right: 2rem; /* Added margin to shift the nav links left */
+}
+
+.desktop-nav a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  color: #CC0000;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    background: transparent;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .dropdown-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b318f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+    transform: translateX(100%);
+    z-index: 1100;
+  }
+
+  .dropdown-menu.active {
+    transform: translateX(0);
+  }
+
+  .dropdown-menu a {
+    color: white;
+    background-color: #0b318f;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .dropdown-menu a:hover {
+    color: #CC0000;  
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+/* Desktop-Specific */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: none !important;
+  }
+
+  .desktop-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+}
+
+/* Hamburger (3-bar) Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1101;
+}
+
+.menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background-color: #CC0000;  
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+/* RESPONSIVE RULES */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
+  }
+  .dropdown-menu {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+/* Prevent background scroll when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Keep hamburger/X on top of menu */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1103;
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b318f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+  transform: translateX(100%);
+  z-index: 1100;
+}
+
+.dropdown-menu.active {
+  transform: translateX(0);
+}
+
+/* === MAIN SECTION === */
+main {
+  background-color: #ffffff;
+  padding-top: 0;
+}
+
+/* === SECTION STYLING === */
+section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section > div {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #2980b9;
+}
+
+/* === SOCIAL LINKS === */
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  font-size: 2rem;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #2980b9;
+  transform: scale(1.2);
+}
+
+.social-links.fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+/* === CONTACT SECTION === */
+#contact h2 {
+  text-align: center;
+}
+
+#contact {
+  color: navy;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#contact a {
+  color: navy;
+}
+
+#contact a:hover {
+  color: #000080;
+}
+
+#contact .bx {
+  color: navy;
+}
+
+/* === SKILLS SECTION === */
+#skills {
+  padding: 1.5rem;
+  max-width: 100%; /* Full width on mobile */
+  margin: auto;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 10px; /* Fixed gap for both horizontal and vertical spacing */
+  justify-content: center;
+  padding-bottom: 50px;
+  align-items: stretch;
+  background-color: white;
+  width: 100%; /* Adjust to mobile screen */
+  grid-auto-rows: 1fr; /* Ensures uniform height for all items */
+  box-sizing: border-box;
+}
+
+.icon-box {
+  background-color: navy;
+  color: white;
+  border-radius: 10px;
+  padding: 0.8rem; /* Adjusted padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto; /* Dynamic height */
+  width: 100%; /* Full width within the grid */
+  aspect-ratio: 1 / 1; /* Ensures a square shape */
+  box-sizing: border-box;
+}
+
+.icon-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.icon img {
+  width: 30px; /* Adjusted icon size */
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.icon-box h4 {
+  font-size: 0.8rem; /* Slightly smaller text */
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+/* Desktop Specific Adjustment: Fixed horizontal gap */
+@media (min-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic columns */
+    column-gap: 20px; /* Fixed horizontal gap */
+    row-gap: 10px; /* Fixed vertical gap */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* Medium-sized screen layout */
+    column-gap: 20px; /* Fixed horizontal gap */
+    row-gap: 10px; /* Fixed vertical gap */  }
+}
+
+@media (min-width: 261px) and (max-width: 767px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* Adjusted for smaller screens */
+    column-gap: 20px; /* Fixed horizontal gap */
+    row-gap: 10px; /* Fixed vertical gap */  }
+}
+
+@media (max-width: 260px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    column-gap: 20px; /* Fixed horizontal gap */
+    row-gap: 10px; /* Fixed vertical gap */
+  }
+}
+
+/* Ensuring consistent height and width */
+.icon-box {
+  min-height: 120px; /* Reduced minimum height */
+  max-width: 160px; /* Reduced max width for mobile */
+}
+
+/* Social links adjustment */
+#contact .social-links {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* === EXPERIENCE & PROJECT SECTION === */
+#experience, #projects {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.experience-grid, .project-grid {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 50px;
+  align-items: stretch;
+  background-color: transparent;
+}
+
+/* Box Styling */
+.experience-box, .project-box {
+  background-color: navy;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  min-height: 300px; /* Increased height for better image fit */
+  text-align: center;
+}
+
+/* Remove the unwanted black background */
+.experience-grid, .project-grid {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Hover Effect */
+.experience-box:hover, .project-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Styling */
+.experience-box h4, .project-box h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: white;
+}
+
+.experience-box p, .project-box p {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  color: white;
+}
+
+/* Image Styling for Project Boxes */
+.project-box .icon img {  
+  width: 100%;         /* Make image take the full width of the box */
+  height: auto;        /* Maintain the original aspect ratio */
+  object-fit: contain; /* Ensure the entire image fits without cropping */
+  max-height: 200px;   /* Limit height for better presentation */
+  margin: 0.5rem 0;
+  border-radius: 5px;
+}
+/* Image Styling for Experience Boxes */
+.experience-box .icon img {  
+  width: 100%;         /* Make image take the full width of the box */
+  height: auto;        /* Maintain the original aspect ratio */
+  object-fit: contain; /* Ensure the entire image fits without cropping */
+  max-height: 200px;   /* Limit height for better presentation */
+  margin: 0.5rem 0;
+  border-radius: 5px;
+}
+/* Responsive Grid Layout */
+@media (min-width: 992px) {
+  .experience-grid, .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .experience-grid, .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 261px) and (max-width: 767px) {
+  .experience-grid, .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 260px) {
+  .experience-grid, .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Adjustment */
+@media (max-width: 767px) {
+  .experience-box, .project-box {
+    min-height: 250px; /* Reduced height for mobile */
+    padding: 0.75rem;
+  }
+
+  .experience-box h4, .project-box h4 {
+    font-size: 1.1rem; /* Adjusted font size for mobile */
+  }
+
+  .experience-box p, .project-box p {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+  /* Mobile Image Fix for Project */
+ .project-box .icon img {
+    width: 90%;         /* Reduce size for mobile devices */
+    max-height: 180px;  /* Adjusted max height for better fit */
+  }
+  /* Mobile Image Fix for Experience */
+ .experience-box .icon img {
+    width: 90%;         /* Reduce size for mobile devices */
+    max-height: 180px;  /* Adjusted max height for better fit */
+  }
+}
+
+
+/* === FOOTER === */
+footer {
+  margin: 0;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* === Preloader === */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#preloader .music-loader {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  height: 80px;
+}
+
+#preloader .music-loader span {
+  display: block;
+  width: 6px;
+  height: 40px;
+  background: red;
+  transform-origin: center center;
+  animation: wave-scale 1s infinite ease-in-out;
+}
+
+#preloader .music-loader span:nth-child(1) { animation-delay: 0s; }
+#preloader .music-loader span:nth-child(2) { animation-delay: 0.15s; }
+#preloader .music-loader span:nth-child(3) { animation-delay: 0.3s; }
+#preloader .music-loader span:nth-child(4) { animation-delay: 0.15s; }
+#preloader .music-loader span:nth-child(5) { animation-delay: 0s; }
+
+@keyframes wave-scale {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(2); }
+}
+
+/* === AOS Reset for Mobile === */
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/* === ABOUT SECTION STYLING === */
+#about {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* About Heading */
+#about h2 {
+  color: #0B318F;
+  margin-bottom: 1rem; /* Adds some space below the heading */
+}
+
+/* About Content - Flex layout for image and text */
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem; /* Space between image and text */
+  width: 100%;
+}
+
+/* Profile Picture Styling */
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+}
+
+/* About Text Styling */
+.about-description {
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Non-Desktop Layout */
+@media (max-width: 767px) {
+  #about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-picture {
+    margin-bottom: 1rem; /* Add margin below the image on mobile */
+  }
+
+  .about-description {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+/* Experience Link Styling */
+.experience-link {
+  color: white;           /* Match text color */
+  text-decoration: none;  /* Remove underline */
+  transition: color 0.3s ease;
+}
+
+.experience-link:hover {
+  color: white;         /* Light blue on hover */
+}
+
+/* Maintain font size and styling within the Experience Box */
+.experience-box h4 a {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
