@@ -18,7 +18,7 @@ html, body {
 header {
   width: 100vw;
   height: 100vh;
-  background-image: url('https://martinkvu.github.io/assets/IMG_2433.jpg');
+  background-image: url('./assets/YNPBackgrounds.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -99,7 +99,7 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  width: calc(100% - 14.5px); /* Full viewport width */
+  width: 100%; /* Full viewport width */
   height: 60px;
   background-color: rgba(11, 49, 143, 0.85); /* Default transparent for mobile */
   padding: 1rem 0;
@@ -110,10 +110,24 @@ body.loaded #typed {
   align-items: center;
 }
 
-/* Non-Transparent Background for Desktop */
+/* Transparent Navbar (at header) */
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Solid Navbar after scrolling past the header */
+.navbar.scrolled {
+  background-color: #0b318f; /* Solid navy */
+}
+
+/* Desktop-Specific */
 @media (min-width: 1025px) {
   .navbar {
-    background-color: #0b318f; /* Solid non-transparent color */
+    background-color: transparent;
+  }
+  .navbar.scrolled {
+    background-color: #0b318f;
   }
 }
 

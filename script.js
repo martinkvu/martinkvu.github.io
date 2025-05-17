@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav-links");
   const desktopNav = document.querySelector(".desktop-nav");
@@ -89,4 +89,122 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.remove("no-scroll");
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const aboutSection = document.querySelector('#about');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('scrolled'); // Solid navy when "About" appears
+        } else {
+          navbar.classList.remove('scrolled'); // Transparent when not in view
+        }
+      });
+    },
+    {
+      root: null,       // Use the viewport as the root
+      threshold: 0.1,   // Trigger when 10% of the element is visible
+    }
+  );
+
+  // Observe the about section
+  observer.observe(aboutSection);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const aboutSection = document.querySelector('#skills');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('scrolled'); // Solid navy when "About" appears
+        } else {
+          navbar.classList.remove('scrolled'); // Transparent when not in view
+        }
+      });
+    },
+    {
+      root: null,       // Use the viewport as the root
+      threshold: 0.1,   // Trigger when 10% of the element is visible
+    }
+  );
+
+  // Observe the about section
+  observer.observe(aboutSection);
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const aboutSection = document.querySelector('#experience');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('scrolled'); // Solid navy when "About" appears
+        } else {
+          navbar.classList.remove('scrolled'); // Transparent when not in view
+        }
+      });
+    },
+    {
+      root: null,       // Use the viewport as the root
+      threshold: 0.1,   // Trigger when 10% of the element is visible
+    }
+  );
+
+  // Observe the about section
+  observer.observe(aboutSection);
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const aboutSection = document.querySelector('#projects');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('scrolled'); // Solid navy when "About" appears
+        } else {
+          navbar.classList.remove('scrolled'); // Transparent when not in view
+        }
+      });
+    },
+    {
+      root: null,       // Use the viewport as the root
+      threshold: 0.1,   // Trigger when 10% of the element is visible
+    }
+  );
+
+  // Observe the about section
+  observer.observe(aboutSection);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const aboutSection = document.querySelector('#contact');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('scrolled'); // Solid navy when "About" appears
+        } else {
+          navbar.classList.remove('scrolled'); // Transparent when not in view
+        }
+      });
+    },
+    {
+      root: null,       // Use the viewport as the root
+      threshold: 0.1,   // Trigger when 10% of the element is visible
+    }
+  );
+
+  // Observe the about section
+  observer.observe(aboutSection);
 });
