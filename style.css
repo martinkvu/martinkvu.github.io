@@ -181,6 +181,7 @@ body.loaded #typed {
     display: block;
     color: white;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 
   .dropdown-menu {
@@ -194,13 +195,15 @@ body.loaded #typed {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
     transform: translateX(100%);
+    opacity: 0;
     z-index: 1100;
   }
 
   .dropdown-menu.active {
     transform: translateX(0);
+    opacity: 1;
   }
 
   .dropdown-menu a {
@@ -213,7 +216,7 @@ body.loaded #typed {
   }
 
   .dropdown-menu a:hover {
-    color: #CC0000;  
+    color: #CC0000;
   }
 
   .desktop-nav {
