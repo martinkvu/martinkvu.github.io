@@ -15,31 +15,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
-<body id ="app"> 
-  <div id="home">
-    <div class="flex flex-col justify-center">
-      <main class="flex flex-col items-center justify-center w-full">
-        <div class="w-full h-screen">
-
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <header>
-    <div>        
-    <div id="typed-strings">
-  <p>Hi, I'm Martin Vu</p>
-</div>
-<span id="typed" style="color: white; font-size: 3rem;"></span>
-      <div class="social-links">
-        <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email"><i class="bx bx-envelope"></i></a>       
-        <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin"><i
-            class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/martinkvu" target="_blank" rel="noopener noreferrer" class="github"><i
-            class="bx bxl-github"></i></a>
-    </div>
-  </header>
+  <body id="app">
 <!-- Navigation -->
 <nav class="navbar">
   <!-- Hamburger Menu for Mobile/Tablet -->
@@ -68,8 +44,35 @@
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </div>
-  
-</nav>  
+</nav>
+  <!-- Fullscreen Header (acts as #home section) -->
+  <header id="home">
+    <div class="flex flex-col justify-center items-center h-screen text-center text-white">
+      
+      <!-- Typed.js strings -->
+      <div id="typed-strings">
+        <p>Hi, I'm Martin Vu</p>
+      </div>
+
+      <!-- Typed.js output -->
+      <span id="typed" style="font-size: 3rem;"></span>
+
+      <!-- Social Icons -->
+      <div class="social-links mt-4">
+        <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email">
+          <i class="bx bx-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://github.com/martinkvu" target="_blank" rel="noopener noreferrer" class="github">
+          <i class="bx bxl-github"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
   <main id="main">
 <section class="section" id="about">
     <h2 style="color: #0B318F;">About</h2>
@@ -77,17 +80,20 @@
     <div class="profile-container">
       <img src="assets/BEBE8C91-766B-4C2F-8E71-6CD8BD14B9A4.JPG" alt="Profile Picture" class="profile-picture">
     </div>
-    <p class="about-description" style="color: black;">
-   I am a graduate of the University of Texas at Austin with a Bachelor of Science in Mathematics and a minor in Business.  
-   I have two and a half years of research experience and one year of data analytics experience. 
-   I also obtained a certificate in Scientific Computation & Data Sciences from The University of Texas at Austin in May 2025.
-   During my tenure at UT’s Urban Ecosystem Stream, I engaged in research focused on environmental science and data analysis. 
-   My responsibilities encompassed exploratory data analysis, statistical analysis and modeling, data visualizations, data science and data mining. 
-   I am eager to leverage my analytical and research capabilities in a future role.I am actively seeking a full time entry-level position as an analyst, and I am interested in the fields of: analytics, data science, research, finance, healthcare, and environmental science.
-   I am also in the process of becoming a certified financial analyst. I am open to relocating within the United States. 
-   I am also open to on-site, hybrid, and remote job opportunities. 
-   In my free time I enjoyed Swimming, Running, Traveling, Entertainment, and playing the Viola and the Piano.
-    </p>
+<div class="about-description" style="color: black;">
+<p>
+  I am a graduate of 
+  <a href="https://www.utexas.edu/" style="color: #BF5700; text-decoration: none;" target="_blank">
+    the University of Texas at Austin
+  </a>
+  with a Bachelor of Science in Mathematics, a minor in Business, and a certificate in Scientific Computation & Data Sciences.
+</p>
+            <p>Recently, I conducted research at UT’s Urban Ecosystem Streams, focusing on environmental science and data analysis. 
+            My responsibilities encompassed exploratory data analysis, statistical analysis and modeling, data visualizations, 
+            data science, and data mining.</p>
+            
+            <p> In my free time, I enjoy swimming, running, traveling, and playing the viola and the piano.</p>
+        </div>
   </div>
 </section>
     
@@ -134,6 +140,14 @@
               <h4>CSS</h4>
             </div>
           </div>            
+<div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+              <div class="icon">
+                <img src="assets/javascriptlogo.png">
+              </div>
+              <h4>JavaScript</h4>
+            </div>
+          </div>    
 <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-blue">
               <div class="icon">
@@ -185,14 +199,6 @@
 <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-blue">
               <div class="icon">
-                <img src="assets/cicon.png">
-              </div>
-              <h4>C</h4>
-            </div>
-          </div>    
-<div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
                 <img src="assets/c++logo.png">
               </div>
               <h4>C++</h4>
@@ -206,6 +212,7 @@
               <h4>Snowflake</h4>
             </div>
           </div>   
+<<<<<<< HEAD
 <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-blue">
               <div class="icon">
@@ -254,28 +261,14 @@
               <h4>FactSet</h4>
             </div>
           </div>            
+=======
+>>>>>>> f333c73 (Update layout and assets)
         <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-blue">
               <div class="icon">
                 <img src="assets/aws.png">
               </div>
               <h4>Amazon Web Services (AWS) </h4>
-            </div>
-          </div>      
-        <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <img src="assets/nodejs.png">
-              </div>
-              <h4>Node.js</h4>
-            </div>
-          </div>      
-        <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <img src="assets/scala.png">
-              </div>
-              <h4>Scala</h4>
             </div>
           </div>      
         <div class="col mt-4 aos-init aos-animate data-aos="zoom-in" data-aos-delay="100">
@@ -300,6 +293,9 @@
     </a>
   </h4>
   <p>Researcher<br><em>August 2024 - Present</em></p>
+  <li></li>
+  <li></li>
+  <li></li>
     </div>
 
     <div class="experience-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -312,6 +308,9 @@
     </a>
   </h4>
     <p>Process Safety Lab Technician<br><em>August 2024 - March 2025</em></p>
+    <li></li>
+    <li></li>
+    <li></li>
     </div>
 
 <div class="experience-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -324,6 +323,9 @@
     </a>
   </h4>
   <p>Researcher<br><em>August 2020 - December 2021</em></p>
+   <li>Utilized Excel to analyze large datasets that improved the accuracy of environmental trends forecasting through predictive modeling.</li>
+<li>Collaborated with researchers to analyze and transform environmental data into recommendations that enhanced Austin’s water quality.</li>
+<li>Conducted laboratory analyses that ensured data accuracy and improved the reliability of environmental modeling for future research initiatives.</li>
 </div>
   </div>
 </section>
@@ -336,7 +338,12 @@
       <img src="assets/MVWebsite.png" alt="My Website Image">
       </div>
       <h4><strong>Portfolio Website</strong></h4>
-      <p>Developer<br><em>April - May 2025</em></p>
+      <p><em>April - May 2025</em></p>
+      <li></li>
+      <li></li>
+      <li></li>
+                <a href="https://github.com/martinkvu/martinkvu.github.io" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>  </a>
     </div>
 
     <div class="project-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -344,7 +351,13 @@
         <img src="assets/iopipnws.png" alt="Organic Pollutants Project">
       </div>
       <h4><strong>The Impacts of Organic Pollutants on Humans in the Pacific Northwest Streams</strong></h4>
-      <p>Researcher<br><em>January - April 2025</em></p>
+      <p><em>January - April 2025</em></p>
+      <li></li>
+      <li></li>
+      <li></li>
+        <a href="https://drive.google.com/file/d/1F2JOc7eXMlIvNOQ5t23Ug5Mqg3uuJz4g/view?usp=sharing" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>
+  </a>
     </div>
 
     <div class="project-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -352,7 +365,13 @@
         <img src="assets/wsruthed2025_urf_data_mining_poster.pptx.jpg" alt="Exploratory Data Analysis">
       </div>
       <h4><strong>Investigating the Impact of Chemical Pollutants on Streams and Health using Exploratory Data Analysis</strong></h4>
-      <p>Researcher<br><em>January - April 2025</em></p>
+      <p><em>January 2025 - April 2025</em></p>
+      <li></li>
+      <li></li>
+      <li></li>
+              <a href="https://drive.google.com/file/d/1tu_cGvZM3p7Exz22gnnPeYNzJXulzXxZ/view?usp=sharing" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>  </a>
+
     </div>
 
     <div class="project-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -360,7 +379,13 @@
         <img src="assets/kkngraph.png" alt="Air Pollution Prediction">
       </div>
       <h4><strong>Optimizing U.S. Air Pollution Prediction with Machine Learning and Cost-Effective Monitoring</strong></h4>
-      <p>Researcher<br><em>May 2024</em></p>
+      <p><em>April 2024 - May 2024</em></p>
+  <li></li>
+  <li></li>
+  <li></li>
+              <a href="https://github.com/martinkvu/Optimizing-U.S.-Air-Pollution-Prediction-with-Machine-Learning-and-Cost-Effective-Monitoring-Project" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>  </a>
+
     </div>
 
     <div class="project-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -368,7 +393,12 @@
         <img src="assets/IMG_4522.jpg" alt="Comparative Analysis">
       </div>
       <h4><strong>Comparative Analysis of Non-Linear SVMs and Decision Trees on Simulated and Real-World Data</strong></h4>
-      <p>Researcher<br><em>May 2024</em></p>
+      <p><em>April 2024 - May 2024</em></p>
+        <li></li>
+  <li></li>
+  <li></li>
+                <a href="https://github.com/martinkvu/Comparative-Analysis-of-Non-Linear-SVMs-and-Decision-Trees-on-Simulated-and-Real-World-Data" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>  </a>
     </div>
 
 <div class="project-box aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
@@ -376,25 +406,29 @@
     <img src="assets/Urban Ecosystems-Team Stuart URF Poster Sp'21.jpg" alt="Habitat Assessment">
   </div>
   <h4><strong>Urban Ecosystems: Habitat Assessment</strong></h4>
-  <p>Researcher<br><em>January - April 2021</em></p>
+  <p><em>January - April 2021</em></p>
+    <li></li>
+  <li></li>
+  <li></li>
+          <a href="https://drive.google.com/file/d/17IyTLs50BtMDMBvOStwoKv9GiCyIdnnn/view?usp=sharing" target="_blank" class="view-project-btn">
+    View Project <i class="bx bx-link-external"></i>  </a>
 </div>
 </div>
 </section>
 
     <section class="section" id="contact">
       <h2 style=" color: #0B318F;"	>Contact</h2>
-      <!--p>Email: <a href="mailto:martinvu777@gmail.com">martinvu777@gmail.com</a></p>-->      
       <div class="social-links">
         <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email"><i class="bx bx-envelope"></i></a>       
         <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin"><i
             class="bx bxl-linkedin"></i></a>
         <a href="https://github.com/martinkvu" target="_blank" rel="noopener noreferrer" class="github"><i
             class="bx bxl-github"></i></a>
-        <!--a href="https://www.instagram.com/martinnn.vu/" target="_blank" rel="noopener noreferrer" class="instagram"><i
-            class="bx bxl-instagram"></i></a>-->
       </div>      
     </section>
-  </main>
+</main>
+
+<!-- === Preloader === -->
 <div id="preloader">
   <div class="music-loader">
     <span></span>
@@ -405,15 +439,40 @@
   </div>
 </div>
 
-  <script>
-  function toggleMenu() {
-    const nav = document.getElementById("nav-links");
-    nav.classList.toggle("active");
-  }
-</script>
-  <script src="script.js"></script>
-  <script>
+<!-- === Footer === -->
+<footer style="background-color: #0B318F; color: white; padding: 20px; text-align: center;">
+  <p>© 2025 Martin Vu. All rights reserved.</p>
+</footer>
+
+<!-- === External Scripts === -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="script.js"></script>
+
+<!-- === Page Load Effects === -->
+<script>
+  // Scroll to top on reload
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  // Preloader fade out
   document.addEventListener("DOMContentLoaded", function () {
+    const preloader = document.getElementById("preloader");
+
+    if (preloader) {
+      preloader.style.display = "flex"; // Show preloader immediately
+
+      setTimeout(() => {
+        preloader.style.opacity = "0";
+        preloader.style.pointerEvents = "none";
+
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500);
+      }, 1500); // Simulated loading duration
+    }
+
+    // Initialize Typed.js
     new Typed("#typed", {
       stringsElement: "#typed-strings",
       typeSpeed: 60,
@@ -424,32 +483,13 @@
     });
   });
 </script>
-  <script>
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
-</script>
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const preloader = document.getElementById("preloader");
-
-    if (preloader) {
-      preloader.style.display = "flex"; // Show preloader immediately
-
-      // Optional delay to simulate loading (e.g. 1.5s)
-      setTimeout(() => {
-        preloader.style.opacity = "0";
-        preloader.style.pointerEvents = "none";
-
-        // Fully hide after transition (optional)
-        setTimeout(() => {
-          preloader.style.display = "none";
-        }, 500);
-      }, 1500); // Adjust delay time (ms) as needed
-    }
-  });
+  document.documentElement.style.setProperty(
+    '--scrollbar-width',
+    window.innerWidth - document.documentElement.clientWidth + 'px'
+  );
 </script>
+<<<<<<< HEAD
 <script>
     function toggleMenu() {
       const nav = document.getElementById("nav-links");
@@ -464,6 +504,9 @@
   <p>© 2025 Martin Vu. All rights reserved.</p>
 </footer>  
 <script src="script.js"></script>
+</script>
 </body>
 </html>
+
+
 
