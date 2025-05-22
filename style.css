@@ -158,7 +158,6 @@ body.loaded #typed {
 .desktop-nav a.active {
   color: #CC0000;
 }
-<<<<<<< HEAD
 
 /* Responsive for Mobile */
 @media (max-width: 768px) {
@@ -221,10 +220,8 @@ body.loaded #typed {
     color: white;
     cursor: pointer;
   }
-=======
 .navbar.scrolled {
   background-color: #0B318F;
->>>>>>> f333c73 (Update layout and assets)
 }
 /* === HAMBURGER MENU === */
 .menu-toggle {
