@@ -1,8 +1,4 @@
 /* === RESET STYLES === */
-:root {
-  --scrollbar-width: 16px; /* Approx for Windows; macOS may hide it but this ensures consistency */
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -103,39 +99,29 @@ body.loaded #typed {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0; /* Ensures it doesn't exceed viewport */
   width: 100%;
   height: 60px;
-  background-color: #0B318F;
-  /*padding: 1rem 0;*/
+  background-color: transparent;
+  padding: 1rem 0;
   z-index: 1000;
   display: flex;
-    justify-content: center; /* Center nav-content */
-  /*justify-content: space-between;*/
-  align-items: center;
-  transition: background-color 0.3s ease;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevents horizontal overflow on small screens */
-}
-/* Desktop-Specific */
-@media (max-width: 1024px) {
-  .navbar {
-    background-color: transparent;
-  }
-  .navbar.scrolled {
-    background-color: transparent;
-  }
-}
-.nav-content {
-  width: calc(100% - var(--scrollbar-width, 0px)); /* Subtract scrollbar width */
-  max-width: 1280px;
-    margin: 0 auto;         /* ✅ Horizontally center the container */
-    padding: 0 2rem;
-      display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #0B318F;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .desktop-nav {
@@ -159,70 +145,6 @@ body.loaded #typed {
   color: #CC0000;
 }
 
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-  .navbar {
-    background: transparent;
-    width: 100%;
-  }
-
-  .menu-toggle {
-    display: block;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  .dropdown-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0b318f;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    transform: translateX(100%);
-    opacity: 0;
-    z-index: 1100;
-  }
-
-  .dropdown-menu.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .dropdown-menu a {
-    color: white;
-    background-color: #0b318f;
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .dropdown-menu a:hover {
-    color: #CC0000;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-  }
-.navbar.scrolled {
-  background-color: #0B318F;
-}
 /* === HAMBURGER MENU === */
 .menu-toggle {
   display: none;
@@ -262,7 +184,7 @@ body.loaded #typed {
 .dropdown-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: 0; /* slides from right */
   width: 100vw;
   height: 100vh;
   background-color: #0B318F;
@@ -276,13 +198,11 @@ body.loaded #typed {
   z-index: 1100;
 }
 
-/* Active menu state (slide-in) */
 .dropdown-menu.active {
   transform: translateX(0);
   opacity: 1;
 }
 
-/* Closing state for animation */
 .dropdown-menu.closing {
   transform: translateX(100%);
   opacity: 0;
@@ -293,20 +213,15 @@ body.loaded #typed {
   font-size: 1.5rem;
   margin: 1rem 0;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .dropdown-menu a:hover {
   color: #CC0000;
 }
-#about, #skills, #experience, #projects, #contact {
-  scroll-margin-top: 60px; /* Adjust based on your navbar height */
-}
+
 /* === RESPONSIVE RULES === */
 @media (max-width: 768px) {
-  .navbar{
-    background-color: transparent;
-  }
   .menu-toggle {
     display: flex;
   }
@@ -323,11 +238,6 @@ body.loaded #typed {
     color: white;
     cursor: pointer;
   }
-
-  /* Let JS control visibility on mobile */
-  .dropdown-menu {
-    display: flex;
-  }
 }
 
 @media (min-width: 769px) {
@@ -335,7 +245,6 @@ body.loaded #typed {
     display: none;
   }
 
-  /* Keep hidden on desktop view */
   .dropdown-menu {
     display: none !important;
   }
@@ -349,7 +258,6 @@ body.loaded #typed {
 body.no-scroll {
   overflow: hidden;
 }
-
 
 
 /* === MAIN SECTION === */
@@ -447,10 +355,12 @@ a {
 /* Flex layout for content */
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   width: 100%;
+  max-width: 800px;
 }
 
 /* Profile Container */
@@ -458,7 +368,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto;
+  margin: 1 rem auto;
+  /*flex: 0 0 200px; /* Fixed width for image */
+  /*margin-right: auto; /* Adjusted spacing from the text */
 }
 
 /* Profile Picture Styling */
@@ -469,24 +381,36 @@ a {
   object-fit: cover;
   object-position: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
-
+#about .profile-picture {
+  margin-right: auto;
+  margin-left: 0;
+}
 /* About Text Styling */
 .about-description {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Space between paragraphs */
   max-width: 600px;
   text-align: left;
-  color: #333;
 }
 
 #about .about-description p {
+  margin-bottom: 1.5rem;
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  color: #333;
+}
+/* Ensuring vertical alignment of paragraphs */
+#about .about-description {
+  display: block;
 }
 
+#about .about-description p {
+  display: block;
+  margin-bottom: 1rem;
+}
 /* About Heading */
 #about h2 {
   color: #0B318F;
@@ -494,57 +418,70 @@ a {
   margin-right: auto;
   margin-bottom: 1rem;
 }
-
-/* Desktop Layout: Two-column */
+/* Desktop Layout: Two-Column */
 @media (min-width: 769px) {
   .about-content {
+    /*display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
+    gap: 2rem;*/
+        display: grid;
+    grid-template-columns: 1fr 2fr; /* Profile on left, description in center */
+    align-items: center;
+    gap: 2rem;
   }
 
-  #about .profile-container {
+  /* Left column for profile picture */
+  /*#about .profile-container {
     flex: 0 0 200px;
-    margin: 0;
+    display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .profile-picture {
-    margin: 0;
-  }
-
-  .about-description {
+    align-items: center;
+    margin-right: 2rem;
+  }*/
+#about .profile-container {
+  justify-self: start;
+}
+  /* Center column for about description */
+  #about .about-description {
     flex: 1;
+    max-width: 600px;
+    text-align: left;
   }
+  /* Center column for about description */
+  #about .about-description {
+    justify-self: center; /* Center the text block */
+    max-width: 600px;
+    text-align: left;
+  }
+
 }
 
-/* Responsive Design for Mobile */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .about-content {
+  #about .about-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
-  .profile-picture {
+  #about .profile-picture {
     width: 200px;
     height: 200px;
+    object-position: center;
+    margin: auto;
     margin-bottom: 1rem;
   }
-
-  .about-description {
+  #about .about-description {
     font-size: 1rem;
     text-align: center;
   }
-
   #about h2 {
+    color: #0B318F;
+    font-size: 2rem;
     margin: auto;
   }
 }
-
 
 /* === SKILLS SECTION === */
 #skills {
@@ -945,4 +882,3 @@ footer {
 .view-project-btn i {
   font-size: 1rem;
 }
-
