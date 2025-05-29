@@ -398,7 +398,7 @@ a {
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 /* About Text Styling */
@@ -598,8 +598,8 @@ a {
 
 .experience-grid, .project-grid {
   display: grid;
-  column-gap: 10px; /* Reduced horizontal gap */
-  row-gap: 15px; /* Reduced vertical gap */
+  column-gap: 15px; /* Reduced horizontal gap */
+  row-gap: 20px; /* Reduced vertical gap */
   justify-content: center;
   padding-bottom: 50px;
   align-items: stretch;
@@ -730,6 +730,7 @@ a {
   margin: auto; /* Align headers to the left */
   text-align: center; /* Explicitly centers the text */
   display: block; /* Ensures proper block layout */
+  margin-bottom: 1.5rem;
 }
 
 }
