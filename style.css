@@ -701,6 +701,8 @@ a {
   .experience-grid, .project-grid {
     grid-template-columns: 1fr;
     margin: auto;
+    column-gap: 15px; /* Reduced horizontal gap */
+    row-gap: 25px; /* Reduced vertical gap */
   }
 }
 
@@ -708,6 +710,8 @@ a {
   .experience-grid, .project-grid {
     grid-template-columns: 1fr;
     margin: auto;
+    column-gap: 15px; /* Reduced horizontal gap */
+    row-gap: 25px; /* Reduced vertical gap */
   }
 }
 
