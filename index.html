@@ -45,32 +45,30 @@
   <a href="#contact">Contact</a>
 </div>
 </nav>
-  <!-- Fullscreen Header (acts as #home section) -->
-  <header id="home">
-    <div class="flex flex-col justify-center items-center h-screen text-center text-white">
-      
-      <!-- Typed.js strings -->
-      <div id="typed-strings">
-        <p>Hi, I'm Martin Vu</p>
-      </div>
+ <!-- Fullscreen Header (acts as #home section) -->
+<header id="home">
+  <div class="flex flex-col justify-center items-center h-screen text-center text-white">
+    <!-- Typed.js strings -->
+<div id="typed-strings">
+  <p>Hi, I'm Martin Vu</p>
+</div>
+    <!-- Typed.js output -->
+    <span id="typed" style="font-size: 3rem;"></span>
 
-      <!-- Typed.js output -->
-      <span id="typed" style="font-size: 3rem;"></span>
-
-      <!-- Social Icons -->
-      <div class="social-links mt-4">
-        <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email">
-          <i class="bx bx-envelope"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin">
-          <i class="bx bxl-linkedin"></i>
-        </a>
-        <a href="https://github.com/martinkvu" target="_blank" rel="noopener noreferrer" class="github">
-          <i class="bx bxl-github"></i>
-        </a>
-      </div>
+    <!-- Social Icons -->
+    <div class="social-links mt-4">
+      <a href="mailto:martinvu777@gmail.com" target="_blank" rel="noopener noreferrer" class="email">
+        <i class="bx bx-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/martin-k-vu/" target="_blank" rel="noopener noreferrer" class="linkedin">
+        <i class="bx bxl-linkedin"></i>
+      </a>
+      <a href="https://github.com/martinkvu" target="_blank" rel="noopener noreferrer" class="github">
+        <i class="bx bxl-github"></i>
+      </a>
     </div>
-  </header>
+  </div>
+</header>
 
 
   <main id="main">
@@ -413,40 +411,8 @@
 <script src="script.js"></script>
 
 <!-- === Page Load Effects === -->
-<script>
-  // Scroll to top on reload
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
-
-  // Preloader fade out
-  document.addEventListener("DOMContentLoaded", function () {
-    const preloader = document.getElementById("preloader");
-
-    if (preloader) {
-      preloader.style.display = "flex"; // Show preloader immediately
-
-      setTimeout(() => {
-        preloader.style.opacity = "0";
-        preloader.style.pointerEvents = "none";
-
-        setTimeout(() => {
-          preloader.style.display = "none";
-        }, 500);
-      }, 1500); // Simulated loading duration
-    }
-
-    // Initialize Typed.js
-    new Typed("#typed", {
-      stringsElement: "#typed-strings",
-      typeSpeed: 60,
-      backSpeed: 30,
-      backDelay: 1500,
-      startDelay: 300,
-      showCursor: false
-    });
-  });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="script.js"></script>
 <script>
   document.documentElement.style.setProperty(
     '--scrollbar-width',
