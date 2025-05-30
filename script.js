@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ✅ Calculate scrollbar width early to prevent layout shift
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+  document.documentElement.style.setProperty('--scrollbar-width', `0px`);
 
   // === Toggle navigation menu (Mobile) ===
   function toggleMenu() {
