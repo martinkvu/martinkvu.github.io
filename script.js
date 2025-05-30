@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Lock scroll during preloading
   document.body.classList.add("preloading");
 
-  // ✅ Calculate scrollbar width early to prevent layout shift
+  // Pre-calculate scrollbar width to avoid layout shift
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.documentElement.style.setProperty('--scrollbar-width', `0px`);
+  document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 
-  // === Toggle navigation menu (Mobile) ===
+  // === Mobile nav toggle ===
   function toggleMenu() {
     if (nav.classList.contains("active")) {
       nav.classList.add("closing");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", toggleMenu);
   }
 
-  // === Smooth scroll + close dropdown ===
+  // === Smooth scroll and menu auto-close ===
   document.querySelectorAll(".dropdown-menu a, .desktop-nav a").forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Close menu when clicking outside (Mobile) ===
+  // === Close menu when clicking outside on mobile ===
   document.addEventListener("click", function (e) {
     const isMenuClick = nav.contains(e.target) || menuToggle.contains(e.target);
     if (!isMenuClick && nav.classList.contains("active")) {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // === Highlight nav link based on scroll position ===
+  // === Nav link active state on scroll ===
   window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll(".desktop-nav a, .dropdown-menu a");
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Navbar background change based on scroll ===
+  // === Navbar color change on scroll ===
   function updateNavbar() {
     const scrollY = window.scrollY;
     const headerHeight = header.offsetHeight;
@@ -91,47 +91,41 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", updateNavbar);
   updateNavbar();
 
-  // === Preloader: finalize layout after full load ===
- window.addEventListener("load", () => {
-  // Scrollbar width (already set early in DOMContentLoaded)
-  if (preloader) {
-    preloader.style.transition = "opacity 0.5s ease";
-  }
-
-  // Apply temporary padding to body to simulate scrollbar
-  document.body.style.paddingRight = `${scrollbarWidth}px`;
-
-  setTimeout(() => {
+  // === Preloader ===
+  window.addEventListener("load", () => {
     if (preloader) {
-      preloader.style.opacity = "0";
-      document.body.classList.add("loaded");
+      preloader.style.transition = "opacity 0.5s ease";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
 
       setTimeout(() => {
-        preloader.style.display = "none";
-        document.body.classList.remove("preloading");
+        preloader.style.opacity = "0";
+        document.body.classList.add("loaded");
 
-        // ✅ Remove fake scrollbar padding after layout is stable
-        document.body.style.paddingRight = "0px";
-      }, 500);
-    }
+        setTimeout(() => {
+          preloader.style.display = "none";
+          document.body.classList.remove("preloading");
+          document.body.style.paddingRight = "0px";
 
-    // Start Typed.js
-    if (typedTarget) {
-      typedTarget.textContent = "";
-      new Typed("#typed", {
-        stringsElement: "#typed-strings",
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 1500,
-        loop: false,
-        showCursor: false,
-        onComplete: () => {
-          typedTarget.classList.add("done-typing");
-          const cursor = document.querySelector(".typed-cursor");
-          if (cursor) cursor.style.display = "none";
-        }
-      });
+          // ✅ Start Typed.js AFTER preloader finishes
+          if (typedTarget) {
+            typedTarget.textContent = "";
+            new Typed("#typed", {
+              stringsElement: "#typed-strings",
+              typeSpeed: 50,
+              backSpeed: 30,
+              backDelay: 1500,
+              loop: false,
+              showCursor: false,
+              onComplete: () => {
+                typedTarget.classList.add("done-typing");
+                const cursor = document.querySelector(".typed-cursor");
+                if (cursor) cursor.style.display = "none";
+              }
+            });
+          }
+
+        }, 500); // Wait for fade-out to complete
+      }, 300); // Slight delay to begin fade-out
     }
-  }, 300);
-});
+  });
 });
