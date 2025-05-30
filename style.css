@@ -98,6 +98,20 @@ body.loaded #typed {
     transform: translateZ(0);
   }
 }
+#typed {
+  padding-left: 1rem; /* Default for desktop */
+  padding-right: 1rem;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  #typed {
+    font-size: 2rem; /* Smaller font for mobile */
+    padding-left: 2rem; /* More left padding */
+    padding-right: 2rem;
+    text-align: center;
+  }
+}
 
 /* === NAVBAR STYLING === */
 .navbar {
@@ -312,25 +326,36 @@ a {
   color: #2980b9;
 }
 
-/* === SOCIAL LINKS === */
 .social-links {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  padding-inline: calc(var(--scrollbar-width, 0px) / 2);
+  min-height: 3rem; /* Prevent layout shift by reserving height */
+    box-sizing: border-box;
+
 }
 
+/* Optional: Consistent icon container sizing */
 .social-links a {
   font-size: 2rem;
   color: white;
   transition: transform 0.3s ease, color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 3rem;
+  min-height: 3rem;
 }
 
+/* Hover animation */
 .social-links a:hover {
   color: #2980b9;
   transform: scale(1.2);
 }
 
+/* Fixed position version for floating icons */
 .social-links.fixed {
   position: fixed;
   bottom: 20px;
@@ -805,6 +830,11 @@ footer {
   50% { transform: scaleY(2); }
 }
 
+body.preloading {
+  overflow: hidden;
+  width: 100vw; /* Prevents layout shift caused by scrollbar toggle */
+}
+
 /* === AOS Reset for Mobile === */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
@@ -831,6 +861,16 @@ footer {
   color: inherit;
 }
 
+#contact {
+  text-align: center;
+}
+
+/* Skills Header */
+#contact h2 {
+  color: #0B318F;
+  font-size: 2rem;
+   margin-bottom: 1rem;
+}
 /* Social links adjustment */
 #contact .social-links {
   background: none !important;
@@ -840,12 +880,11 @@ footer {
   margin-bottom: 5rem; /* Add space below social buttons */
   display: flex;
   justify-content: center;
+  align-items: center;        /* ✅ Align vertically */
   gap: 0.75rem; /* Space between each button */
-}
-/* Skills Header */
-#contact h2 {
-  color: #0B318F;
-  font-size: 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;            /* Ensures horizontal centering */
+  width: fit-content;        /* Shrinks container to icon width */
 }
 
 #contact .social-links a {
@@ -853,6 +892,7 @@ footer {
   color: white;
   transition: transform 0.3s ease, color 0.3s ease;
 }
+
 
 
 /* Project Box Styling */
@@ -892,4 +932,9 @@ footer {
 
 .view-project-btn i {
   font-size: 1rem;
+}
+
+body {
+  padding-right: var(--scrollbar-fix, 0px);
+  transition: none !important; /* Prevent animation during shift */
 }
