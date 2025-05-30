@@ -57,35 +57,45 @@ header#home p {
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  padding-right: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
   max-width: 100%;
   z-index: 2;
-  border-right: 2px solid transparent; /* Hide border initially */
-  visibility: hidden; /* Hide until preloader ends */
-  transition: visibility 0s 0.3s, border-color 0s 0.3s; /* Smooth transition for visibility */
+  border-right: 2px solid transparent;
+  opacity: 0;                 /* Start fully invisible */
+  pointer-events: none;
+  visibility: hidden;         /* Prevent blinking */
+  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
 }
 
 body.loaded #typed {
+  opacity: 1;                 /* Fade in with delay match */
   visibility: visible;
-  border-right: 2px solid white; /* Show border when typing starts */
+  pointer-events: auto;
+  border-right: 2px solid white;
+  transition-delay: 0.2s; /* Sync with startDelay: 200ms */
 }
 
+
+/* Hide source strings used by Typed.js */
 #typed-strings {
   display: none;
 }
 
+/* Remove cursor after done */
 #typed.done-typing {
   border-right: none !important;
 }
 
+#typed.done-typing + .typed-cursor {
+  display: none !important;
+}
+
+/* Cursor animation */
 .typed-cursor {
   font-size: 3rem;
   color: white;
   animation: blink-caret 0.8s step-end infinite;
-}
-
-#typed.done-typing + .typed-cursor {
-  display: none !important;
 }
 
 @keyframes blink-caret {
@@ -93,25 +103,27 @@ body.loaded #typed {
   50% { border-color: white; }
 }
 
+/* Optional: Render workaround (keeps text sharp in some browsers) */
 @keyframes typing-glitch-fix {
   0% {
     transform: translateZ(0);
   }
 }
-#typed {
-  padding-left: 1rem; /* Default for desktop */
-  padding-right: 1rem;
-}
 
-/* Mobile-specific styles */
+/* === MOBILE STYLES === */
 @media (max-width: 768px) {
   #typed {
-    font-size: 2rem; /* Smaller font for mobile */
-    padding-left: 2rem; /* More left padding */
+    font-size: 2rem;
+    padding-left: 2rem;
     padding-right: 2rem;
     text-align: center;
   }
+
+  .typed-cursor {
+    font-size: 2rem;
+  }
 }
+
 
 /* === NAVBAR STYLING === */
 .navbar {
@@ -364,6 +376,25 @@ a {
   z-index: 1000;
 }
 
+#home .social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding-inline: calc(var(--scrollbar-width, 0px) / 2);
+  min-height: 3rem;         /* Lock vertical space */
+  height: 3rem;             /* 👈 Add fixed height to lock layout */
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Prevent jump on preload removal */
+}
+
+body.loaded #home .social-links{
+  visibility: visible;
+  opacity:1;
+}
 /* === CONTACT SECTION === */
 #contact h2 {
   text-align: center;
