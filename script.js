@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Lock scroll during preloading
   document.body.classList.add("preloading");
 
-  // Pre-calculate scrollbar width to avoid layout shift
+  // ✅ Calculate scrollbar width early to prevent layout shift
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 
-  // === Mobile nav toggle ===
+  // === Toggle navigation menu (Mobile) ===
   function toggleMenu() {
     if (nav.classList.contains("active")) {
       nav.classList.add("closing");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", toggleMenu);
   }
 
-  // === Smooth scroll and menu auto-close ===
+  // === Smooth scroll + close dropdown ===
   document.querySelectorAll(".dropdown-menu a, .desktop-nav a").forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Close menu when clicking outside on mobile ===
+  // === Close menu when clicking outside (Mobile) ===
   document.addEventListener("click", function (e) {
     const isMenuClick = nav.contains(e.target) || menuToggle.contains(e.target);
     if (!isMenuClick && nav.classList.contains("active")) {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // === Nav link active state on scroll ===
+  // === Highlight nav link based on scroll position ===
   window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll(".desktop-nav a, .dropdown-menu a");
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Navbar color change on scroll ===
+  // === Navbar background change based on scroll ===
   function updateNavbar() {
     const scrollY = window.scrollY;
     const headerHeight = header.offsetHeight;
@@ -91,13 +91,20 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", updateNavbar);
   updateNavbar();
 
-  // === Preloader ===
+  // === Preloader + Typed.js AFTER fade out ===
   window.addEventListener("load", () => {
+    if (typedTarget) {
+      typedTarget.textContent = ""; // ✅ Clear any leftover text BEFORE preloader fade
+    }
+
     if (preloader) {
       preloader.style.transition = "opacity 0.5s ease";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
 
-      setTimeout(() => {
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+    setTimeout(() => {
+      if (preloader) {
         preloader.style.opacity = "0";
         document.body.classList.add("loaded");
 
@@ -106,26 +113,24 @@ document.addEventListener("DOMContentLoaded", function () {
           document.body.classList.remove("preloading");
           document.body.style.paddingRight = "0px";
 
-          // ✅ Start Typed.js AFTER preloader finishes
-          if (typedTarget) {
-            typedTarget.textContent = "";
-            new Typed("#typed", {
-              stringsElement: "#typed-strings",
-              typeSpeed: 50,
-              backSpeed: 30,
-              backDelay: 1500,
-              loop: false,
-              showCursor: false,
-              onComplete: () => {
-                typedTarget.classList.add("done-typing");
-                const cursor = document.querySelector(".typed-cursor");
-                if (cursor) cursor.style.display = "none";
-              }
-            });
-          }
+          // ✅ Start Typed.js with delay
+          new Typed("#typed", {
+            stringsElement: "#typed-strings",
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1500,
+            startDelay: 200, // ✅ Bonus: Prevents premature appearance of "Hi"
+            loop: false,
+            showCursor: false,
+            onComplete: () => {
+              typedTarget.classList.add("done-typing");
+              const cursor = document.querySelector(".typed-cursor");
+              if (cursor) cursor.style.display = "none";
+            }
+          });
 
-        }, 500); // Wait for fade-out to complete
-      }, 300); // Slight delay to begin fade-out
-    }
+        }, 500); // after fade out
+      }
+    }, 300); // slight delay before fade
   });
 });
