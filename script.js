@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nav = document.getElementById("nav-links");
   const desktopNav = document.querySelector(".desktop-nav");
   const typedTarget = document.getElementById("typed");
-  const preloader = document.getElementById("preloader");
+  const preloader = document.getElementById("preloader");More actions
   const navbar = document.querySelector(".navbar");
   const header = document.querySelector("header");
 
@@ -11,9 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.add("preloading");
 
   // ✅ Calculate scrollbar width early to prevent layout shift
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.documentElement.style.setProperty('--scrollbar-width', ${scrollbarWidth}px);
-
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;Add commentMore actions
+  document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
   // === Toggle navigation menu (Mobile) ===
   function toggleMenu() {
     if (nav.classList.contains("active")) {
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nav.classList.remove("closing");
       }, 400);
     } else {
-      nav.classList.remove("closing");
+      nav.classList.remove("closing");More actions
       nav.classList.add("active");
       menuToggle.classList.add("open");
       document.body.classList.add("no-scroll");
@@ -36,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", toggleMenu);
   }
 
-  // === Smooth scroll + close dropdown ===
+ // === Smooth scroll + close dropdown ===
   document.querySelectorAll(".dropdown-menu a, .desktop-nav a").forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const section = document.querySelector(this.getAttribute("href"));
       if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        section.scrollIntoView({ behavior: "smooth", block: "start" });More actions
       }
       if (window.innerWidth <= 1024 && nav.classList.contains("active")) {
         toggleMenu();
@@ -50,15 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Close menu when clicking outside (Mobile) ===
+ // === Close menu when clicking outside (Mobile) ===
   document.addEventListener("click", function (e) {
     const isMenuClick = nav.contains(e.target) || menuToggle.contains(e.target);
-    if (!isMenuClick && nav.classList.contains("active")) {
+    if (!isMenuClick && nav.classList.contains("active")) {Add commentMore actions
       toggleMenu();
     }
   });
 
-  // === Highlight nav link based on scroll position ===
+// === Highlight nav link based on scroll position ===
   window.addEventListener("scroll", () => {
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll(".desktop-nav a, .dropdown-menu a");
@@ -71,18 +70,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     links.forEach(link => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === #${current}) {
+      if (link.getAttribute("href") === `#${current}`) {More actions
         link.classList.add("active");
       }
     });
   });
 
-  // === Navbar background change based on scroll ===
+ // === Navbar background change based on scroll ===
   function updateNavbar() {
     const scrollY = window.scrollY;
     const headerHeight = header.offsetHeight;
     if (scrollY > headerHeight - 60) {
-      navbar.classList.add("scrolled");
+      navbar.classList.add("scrolled");More actions
     } else {
       navbar.classList.remove("scrolled");
     }
@@ -93,27 +92,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Preloader + Typed.js AFTER fade out ===
   window.addEventListener("load", () => {
-    if (typedTarget) {
+    if (typedTarget) {Add commentMore actions
       typedTarget.textContent = ""; // ✅ Clear any leftover text BEFORE preloader fade
     }
 
     if (preloader) {
       preloader.style.transition = "opacity 0.5s ease";
-    }
+  }
 
-    document.body.style.paddingRight = ${scrollbarWidth}px;
+ document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     setTimeout(() => {
       if (preloader) {
         preloader.style.opacity = "0";
         document.body.classList.add("loaded");
-
         setTimeout(() => {
           preloader.style.display = "none";
           document.body.classList.remove("preloading");
           document.body.style.paddingRight = "0px";
 
-          // ✅ Start Typed.js with delay
+
+  // ✅ Start Typed.js with delay
           new Typed("#typed", {
             stringsElement: "#typed-strings",
             typeSpeed: 50,
@@ -122,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             startDelay: 200, // ✅ Bonus: Prevents premature appearance of "Hi"
             loop: false,
             showCursor: false,
-            onComplete: () => {
+            onComplete: () => {Add commentMore actions
               typedTarget.classList.add("done-typing");
               const cursor = document.querySelector(".typed-cursor");
               if (cursor) cursor.style.display = "none";
@@ -134,3 +133,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300); // slight delay before fade
   });
 });
+
+
