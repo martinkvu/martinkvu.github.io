@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ✅ Calculate scrollbar width early to prevent layout shift
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+  document.documentElement.style.setProperty('--scrollbar-width', ${scrollbarWidth}px);
 
   // === Toggle navigation menu (Mobile) ===
   function toggleMenu() {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     links.forEach(link => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
+      if (link.getAttribute("href") === #${current}) {
         link.classList.add("active");
       }
     });
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       preloader.style.transition = "opacity 0.5s ease";
     }
 
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
+    document.body.style.paddingRight = ${scrollbarWidth}px;
 
     setTimeout(() => {
       if (preloader) {
