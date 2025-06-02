@@ -230,12 +230,14 @@ body.loaded #typed {
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 1100;
+  pointer-events: none;
 }
 
 /* Active menu state (slide-in) */
 .dropdown-menu.active {
   transform: translateX(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Closing state for animation */
@@ -284,6 +286,10 @@ body.loaded #typed {
   .dropdown-menu {
     display: flex;
   }
+   .dropdown-menu.active {
+    pointer-events: auto;
+  }
+
 }
 
 @media (min-width: 769px) {
@@ -356,7 +362,6 @@ a {
   transition: transform 0.3s ease, color 0.3s ease;
   align-items: center;
   justify-content: center;
-
   min-width: 3rem;
   min-height: 3rem;
 }
@@ -454,7 +459,6 @@ body.loaded #home .social-links{
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 /* About Text Styling */
@@ -673,8 +677,8 @@ body.loaded #home .social-links{
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  width: 80%;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
+  width: 100%;
   min-height: 400px; /* Increased height for better image fit */
   text-align: center;
 }
@@ -688,10 +692,10 @@ body.loaded #home .social-links{
 }
 
 /* Hover Effect */
-.experience-box:hover, .project-box:hover {
+/*.experience-box:hover, .project-box:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
+}*/
 
 /* Text Styling */
 .experience-box h4, .project-box h4 {
