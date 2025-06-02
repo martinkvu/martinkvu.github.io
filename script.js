@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nav = document.getElementById("nav-links");
   const desktopNav = document.querySelector(".desktop-nav");
   const typedTarget = document.getElementById("typed");
-  const preloader = document.getElementById("preloader");More actions
+  const preloader = document.getElementById("preloader");
   const navbar = document.querySelector(".navbar");
   const header = document.querySelector("header");
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.add("preloading");
 
   // ✅ Calculate scrollbar width early to prevent layout shift
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;Add commentMore actions
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
   // === Toggle navigation menu (Mobile) ===
   function toggleMenu() {
